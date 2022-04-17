@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevhawes.FormationController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="21.0" prefHeight="391.0" prefWidth="609.0">
+         <children>
+            <TextField fx:id="nomf" layoutX="24.0" layoutY="50.0" prefHeight="25.0" prefWidth="141.0" />
+            <TextField fx:id="domaine" layoutX="24.0" layoutY="106.0" prefHeight="25.0" prefWidth="141.0" />
+            <TextField fx:id="duree" layoutX="24.0" layoutY="162.0" prefHeight="25.0" prefWidth="141.0" />
+            <Button fx:id="ajoutF" layoutX="34.0" layoutY="270.0" mnemonicParsing="false" onAction="#inscrire" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Ajouter" />
+            <TextField fx:id="nomeq" layoutX="24.0" layoutY="214.0" prefHeight="25.0" prefWidth="141.0" />
+            <Button fx:id="modF" layoutX="34.0" layoutY="311.0" mnemonicParsing="false" onAction="#modifier" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Modifier" />
+            <Button fx:id="supF" layoutX="34.0" layoutY="344.0" mnemonicParsing="false" onAction="#supprimer" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Supprimer" />
+            <TableView fx:id="ListF" layoutX="167.0" prefHeight="400.0" prefWidth="433.0">
+               <columns>
+                  <TableColumn id="partic" fx:id="nF" prefWidth="128.0" text="Nom" />
+                  <TableColumn fx:id="dF" prefWidth="165.0" text="Domaine" />
+                  <TableColumn fx:id="dureeF" prefWidth="52.0" text="Duree" />
+                  <TableColumn fx:id="nomeqF" prefWidth="90.0" text="Nom Equipe" />
+                  <TableColumn id="partic" fx:id="nF1" prefWidth="128.0" text="Nom" />
+                  <TableColumn id="partic" fx:id="nF2" prefWidth="128.0" text="Nom" />
+                  <TableColumn id="partic" fx:id="nF3" prefWidth="128.0" text="Nom" />
+               </columns>
+            </TableView>
+            <Label layoutX="34.0" layoutY="29.0" text="Nom" />
+            <Label layoutX="34.0" layoutY="89.0" text="Domaine" />
+            <Label layoutX="36.0" layoutY="200.0" text="Nom Equipe" />
+            <Label layoutX="37.0" layoutY="145.0" text="Duree" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
