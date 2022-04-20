@@ -30,12 +30,16 @@ public class ReclamationService {
     private Connection connection;
     private ResultSet rs;
     public ReclamationService() {
+        
         connection=Database.getInstanceConnex().getConnection();
     }
     public ObservableList <Reclamation> readAll(int id_client){
+        
         Reclamation rec=null;
-            String req="select* from reclamation where id_client = "+id_client+"";          
+            String req="select* from reclamation where id_client = "+id_client+"";    
+            
             ObservableList <Reclamation> list=FXCollections.observableArrayList();
+            
          try {
             ste=connection.createStatement();
             rs=ste.executeQuery(req);

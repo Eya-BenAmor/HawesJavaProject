@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/entities/Reclamation.java</file>
+            <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/services/JavaMail.java</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/GUIControllers/ReponseController.java</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/services/ReclamationService.java</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/entities/Reponse.java</file>
+            <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/Utils/MailerService.java</file>
+            <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/qr/2022-04-20.jpg</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/GUIControllers/ReclamationController.java</file>
+            <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/services/ServiceSysdate.java</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/GUIControllers/Main.java</file>
             <file>file:/C:/Users/EYA/Desktop/gestion-reclamations-reponses/src/services/ReponseService.java</file>
         </group>

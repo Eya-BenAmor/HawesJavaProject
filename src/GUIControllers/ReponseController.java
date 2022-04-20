@@ -5,6 +5,7 @@
  */
 package GUIControllers;
 
+import Utils.MailerService;
 import entities.Reclamation;
 import entities.Reponse;
 import java.io.File;
@@ -68,6 +69,10 @@ public class ReponseController implements Initializable {
     private Label erreur;
     @FXML
     private TextField ta_id;
+    @FXML
+    private Button btn_ReponseConfirm1;
+    @FXML
+    private TextField txtmail;
 
     /**
      * Initializes the controller class.
@@ -118,9 +123,9 @@ public class ReponseController implements Initializable {
                     } 
         rs.addReponse(r);
           showRepo(rec.getId());
-            new Alert(Alert.AlertType.INFORMATION, "Réponse ajouté").show();
-       
-        //ta_reponse.setText("");
+          new Alert(Alert.AlertType.INFORMATION, "Réponse ajouté").show();
+
+        ta_reponse.setText("");
     }
 
 
@@ -165,6 +170,12 @@ public class ReponseController implements Initializable {
          ta_id.setText(Integer.toString(rep.getId()));
       
         showRepo(rec.getId());
+    }
+
+    @FXML
+    private void mail(ActionEvent event) {
+    MailerService m=new MailerService();
+    m.replyMail(txtmail.getText(), "User", "Réclamation traitée", "Bonjour ! votre réclamation a été traitée");
     }
  
      

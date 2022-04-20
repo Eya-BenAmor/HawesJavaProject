@@ -29,12 +29,12 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btn_ReponseConfirm" layoutX="573.0" layoutY="509.0" mnemonicParsing="false" onMouseClicked="#addReponse" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #96F26A;" text="Envoyer" textFill="#408c2d">
+            <Button fx:id="btn_ReponseConfirm" layoutX="518.0" layoutY="464.0" mnemonicParsing="false" onMouseClicked="#addReponse" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #96F26A;" text="Envoyer" textFill="#408c2d">
                <font>
                   <Font size="20.0" />
                </font></Button>
             <TextArea fx:id="ta_reponse" layoutX="452.0" layoutY="308.0" prefHeight="146.0" prefWidth="276.0" style="-fx-background-color: #C6C8C5;" />
-            <TableView fx:id="tv_reponse" layoutX="72.0" layoutY="286.0" onMouseClicked="#tableClickedd" prefHeight="200.0" prefWidth="306.0" style="-fx-background-color: #C6C8C5;">
+            <TableView fx:id="tv_reponse" layoutX="72.0" layoutY="286.0" onMouseClicked="#tableClickedd" prefHeight="206.0" prefWidth="306.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="Col_id_Rec" prefWidth="132.79998779296875" text="id_Reclamation" visible="false" />
                   <TableColumn fx:id="col_text" prefWidth="304.0000244140625" text="Réponses de la réclamation" />
@@ -52,6 +52,17 @@
             <Label fx:id="erreur" layoutX="438.0" layoutY="472.0" prefHeight="28.0" prefWidth="375.0" textFill="#d71414">
                <font>
                   <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_ReponseConfirm1" layoutX="765.0" layoutY="566.0" mnemonicParsing="false" onAction="#mail" onMouseClicked="#addReponse" prefHeight="43.0" prefWidth="168.0" style="-fx-background-color: #96F26A;" text="envoyer mail" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtmail" layoutX="441.0" layoutY="566.0" prefHeight="43.0" prefWidth="306.0" />
+            <Label layoutX="491.0" layoutY="531.0" text="saisir l'email du client :">
+               <font>
+                  <Font name="System Bold" size="19.0" />
                </font>
             </Label>
          </children>

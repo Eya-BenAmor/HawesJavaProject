@@ -1,9 +1,10 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package GUIControllers;
+
 
 import entities.Reclamation;
 import entities.Reponse;
@@ -47,6 +48,11 @@ import javafx.stage.Stage;
 import services.ReclamationService;
 import services.ReponseService;
 import services.ServiceSysdate;
+import net.glxn.qrgen.QRCode;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.SQLException;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
  * FXML Controller class
@@ -108,6 +114,8 @@ public class ReclamationController implements Initializable {
     private Label erreurimage;
     @FXML
     private Label erreurdate;
+    @FXML
+    private Button pdf;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iv_image.setImage(new Image("/img/upload.jpg"));
@@ -173,6 +181,7 @@ public class ReclamationController implements Initializable {
         
        
           Date dateo = Date.valueOf(dp_date.getValue());
+          
            // controle de saisie date doit etre la date actuelle
                  if (!dateo.equals(sys.selectDate())) {
                         erreurdate.setText("vérifier que  la date est égale à la date actuelle");
@@ -202,10 +211,22 @@ public class ReclamationController implements Initializable {
         rs.ajouterReclamation(r);
          new Alert(Alert.AlertType.INFORMATION, "Réclamation ajouté").show();
         showReclamations();
+        
+          Files.copy(Paths.get(tf_image.getText()),Paths.get("C:\\Users\\Eya\\Downloads\\"+f.getName()),REPLACE_EXISTING);
+           QRcode(r);
                        }
  
     }
+ public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
+    private void QRcode(Reclamation r) throws FileNotFoundException, IOException {
+        String contenue = "Description : " + r.getDescription()+ "\n" + "Date: " + r.getDate_reclamation().toString(); 
+        ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
+        File f = new File(projectPath + "\\src\\qr\\" + r.getDescription().toString()+ ".jpg");
+        FileOutputStream fos = new FileOutputStream(f); //creation du fichier de sortie
+        fos.write(out.toByteArray()); //ecrire le fichier du sortie converter
+        fos.flush(); // creation final
 
+    }
     @FXML
     private void uploadImage(MouseEvent event) {
         FileChooser fc = new FileChooser();
@@ -300,17 +321,10 @@ public class ReclamationController implements Initializable {
 
   
 
-    private void repondre(ActionEvent event) {
-         try {
-            Parent root = FXMLLoader.load(getClass().getResource("reponse.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+  
 
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ReponseService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
+  
+
+ 
+   
 }
