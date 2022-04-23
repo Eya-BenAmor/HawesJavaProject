@@ -13,6 +13,28 @@ public class Reponse {
       private int id;
     private String text;
     private int id_reclamation;
+  private String nom_rec ;
+
+    public String getNom_rec() {
+        return nom_rec;
+    }
+
+    public void setNom_rec(String nom_rec) {
+        this.nom_rec = nom_rec;
+    }
+
+    public Reponse(String text, int id_reclamation, String nom_rec) {
+        this.text = text;
+        this.id_reclamation = id_reclamation;
+        this.nom_rec = nom_rec;
+    }
+
+    public Reponse(int id, String text, int id_reclamation, String nom_rec) {
+        this.id = id;
+        this.text = text;
+        this.id_reclamation = id_reclamation;
+        this.nom_rec = nom_rec;
+    }
 
     public Reponse(int id, String text) {
         this.id = id;

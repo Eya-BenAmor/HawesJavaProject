@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="gestion-reclamations-reponses.jar" size="47659" download="eager" />
+    <jar href="gestion-reclamations-reponses.jar" size="68200" download="eager" />
     <jar href="lib\core-3.0.0.jar" size="538199" download="eager" />
     <jar href="lib\javase-3.0.0.jar" size="38898" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />

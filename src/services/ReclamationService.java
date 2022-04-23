@@ -44,7 +44,7 @@ public class ReclamationService {
             ste=connection.createStatement();
             rs=ste.executeQuery(req);
             while(rs.next()){
-                rec = new Reclamation(rs.getInt("id"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
+                rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
                               
                 File file = new File(rec.getImage());
                 Image image = new Image(file.toURI().toString());
@@ -63,15 +63,15 @@ public class ReclamationService {
             return list;
     }
     public void ajouterReclamation(Reclamation r){
-        String req="insert into reclamation (description,image,date_reclamation,id_client) values (?,?,?,?)";
+        String req="insert into reclamation (nom,description,image,date_reclamation,id_client) values (?,?,?,?,?)";
         try {
             pst=connection.prepareStatement(req);
             java.sql.Date sqlDate=new java.sql.Date(r.getDate_reclamation().getTime());
-         
-            pst.setString(1, r.getDescription());
-            pst.setString(2,r.getImage());
-            pst.setDate(3,sqlDate);
-            pst.setInt(4,r.getId_client());
+            pst.setString(1, r.getNom());
+            pst.setString(2, r.getDescription());
+            pst.setString(3,r.getImage());
+            pst.setDate(4,sqlDate);
+            pst.setInt(5,r.getId_client());
           
             pst.executeUpdate();
             
@@ -81,14 +81,15 @@ public class ReclamationService {
         
     }
     public void modifierReclamation(Reclamation r){
-        String req="update reclamation set description = ? , image = ? , date_reclamation = ? where id = ?";
+        String req="update reclamation set nom = ? ,description = ? , image = ? , date_reclamation = ? where id = ?";
         try {
             pst=connection.prepareStatement(req);
             java.sql.Date sqlDate=new java.sql.Date(r.getDate_reclamation().getTime());
-            pst.setString(1, r.getDescription());
-            pst.setString(2,r.getImage());
-            pst.setDate(3,sqlDate);
-            pst.setInt(4,r.getId());
+              pst.setString(1, r.getNom());
+            pst.setString(2, r.getDescription());
+            pst.setString(3,r.getImage());
+            pst.setDate(4,sqlDate);;
+            pst.setInt(5,r.getId());
           
             pst.executeUpdate();
 
@@ -118,7 +119,7 @@ public class ReclamationService {
             rs=ste.executeQuery(req);
             while(rs.next()){
                 
-                rec = new Reclamation(rs.getInt("id"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
+                 rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
                               
                 File file = new File(rec.getImage());
                 Image image = new Image(file.toURI().toString());

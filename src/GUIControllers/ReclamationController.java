@@ -115,7 +115,9 @@ public class ReclamationController implements Initializable {
     @FXML
     private Label erreurdate;
     @FXML
-    private Button pdf;
+    private TableColumn<Reclamation,String> col_nom;
+    @FXML
+    private TextArea ta_nom;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iv_image.setImage(new Image("/img/upload.jpg"));
@@ -129,6 +131,7 @@ public class ReclamationController implements Initializable {
         ObservableList<Reclamation> lista = new ReclamationService().readAll(1);// statically set the client id to just show his reclamations
         list.setAll(lista);
         col_id.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("nom"));
         col_desc.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("description"));
         col_date.setCellValueFactory(new PropertyValueFactory<Reclamation, Date>("date_reclamation"));
         col_image.setCellValueFactory(new PropertyValueFactory<Reclamation, ImageView>("img"));
@@ -177,7 +180,7 @@ public class ReclamationController implements Initializable {
 
         System.out.println(dp_date.getValue().getYear());
         Date d = java.sql.Date.valueOf(dp_date.getValue());
-        Reclamation r = new Reclamation(ta_desc.getText(), d, tf_image.getText(), 1);// i set the client statically, it has to be changed later in the integration 
+        Reclamation r = new Reclamation(ta_nom.getText(),ta_desc.getText(), d, tf_image.getText(), 1);// i set the client statically, it has to be changed later in the integration 
         
        
           Date dateo = Date.valueOf(dp_date.getValue());
@@ -204,6 +207,14 @@ public class ReclamationController implements Initializable {
                   
                         return;
                     }
+                          // controle de saisie nom 
+                       if (ta_nom.getText().isEmpty()) {
+                        erreurimage.setText("nom vide");
+                        erreurimage.setVisible(true);
+                  
+                        return;
+                    }
+                       
                      
                        else {
                          
@@ -219,9 +230,9 @@ public class ReclamationController implements Initializable {
     }
  public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
     private void QRcode(Reclamation r) throws FileNotFoundException, IOException {
-        String contenue = "Description : " + r.getDescription()+ "\n" + "Date: " + r.getDate_reclamation().toString(); 
+        String contenue = "Description : " + r.getDescription()+ "\n"+"Nom : " + r.getNom()+ "\n"+ "Date: " + r.getDate_reclamation().toString(); 
         ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
-        File f = new File(projectPath + "\\src\\qr\\" + r.getDescription().toString()+ ".jpg");
+        File f = new File(projectPath + "\\src\\qr\\" + r.getNom().toString()+ ".jpg");
         FileOutputStream fos = new FileOutputStream(f); //creation du fichier de sortie
         fos.write(out.toByteArray()); //ecrire le fichier du sortie converter
         fos.flush(); // creation final
@@ -246,7 +257,7 @@ public class ReclamationController implements Initializable {
     @FXML
     private void updateReclamation(MouseEvent event) {
         Date d = java.sql.Date.valueOf(dp_date.getValue());
-        Reclamation r = new Reclamation(Integer.parseInt(tf_id.getText()), ta_desc.getText(), d, tf_image.getText(), 1);// i set the client statically, it has to be changed later in the integration 
+        Reclamation r = new Reclamation(Integer.parseInt(tf_id.getText()),ta_nom.getText() ,ta_desc.getText(), d, tf_image.getText(), 1);// i set the client statically, it has to be changed later in the integration 
  Date dateo = Date.valueOf(dp_date.getValue());
            // controle de saisie date doit etre la date actuelle
                  if (!dateo.equals(sys.selectDate())) {
@@ -266,6 +277,13 @@ public class ReclamationController implements Initializable {
                        // controle de saisie image non vide
                        if (tf_image.getText().isEmpty()) {
                         erreurimage.setText("Veuillez ajouter une image");
+                        erreurimage.setVisible(true);
+                  
+                        return;
+                    }
+                              // controle de saisie nom 
+                       if (ta_nom.getText().isEmpty()) {
+                        erreurimage.setText("nom vide");
                         erreurimage.setVisible(true);
                   
                         return;
@@ -290,6 +308,7 @@ public class ReclamationController implements Initializable {
         Image image = new Image(file.toURI().toString());
         iv_image.setImage(image);
         ta_desc.setText(rec.getDescription());
+          ta_nom.setText(rec.getNom());
         int year = Integer.parseInt(rec.getDate_reclamation().toString().substring(0, 4));
         int month = Integer.parseInt(rec.getDate_reclamation().toString().substring(5,7));
         int day= Integer.parseInt(rec.getDate_reclamation().toString().substring(8,10));
@@ -311,6 +330,7 @@ public class ReclamationController implements Initializable {
         tf_id.setText("");
         tf_image.setText("");
         ta_desc.setText("");
+        ta_nom.setText("");
         dp_date.setValue(null);
         iv_image.setImage(null);
         erreur.setText("");

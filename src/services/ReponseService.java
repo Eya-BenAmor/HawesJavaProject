@@ -33,17 +33,33 @@ public class ReponseService {
         connection=Database.getInstanceConnex().getConnection();
     }
     public void addReponse(Reponse r){
-        String req="insert into reponse (text,id_reclamation) values (?,?)";
+        String req="insert into reponse (text,id_reclamation,nom_rec) values (?,?,?)";
         try {
             pst=connection.prepareStatement(req);
          
             pst.setString(1, r.getText());
             pst.setInt(2,r.getId_reclamation());
+            pst.setString(3, r.getNom_rec());
             pst.executeUpdate();
             
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationService.class.getName()).log(Level.ALL.SEVERE, null, ex);
         }
+    }
+      public ObservableList<Reponse> afficherReponse(Reponse r){
+         String req="select * from reponse ";   
+         System.out.println(req);
+            ObservableList <Reponse> list=FXCollections.observableArrayList();
+         try {
+            ste=connection.createStatement();
+            rs=ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation"),rs.getString("nom_rec")));
+            }
+        } catch (SQLException ex) {
+             Logger.getLogger(Reponse.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+         return list;
     }
     public ObservableList<Reponse> afficherReponse(int id_reclamtion){
          String req="select * from reponse where id_reclamation = "+id_reclamtion+"";   
@@ -53,14 +69,28 @@ public class ReponseService {
             ste=connection.createStatement();
             rs=ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation")));
+                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation"),rs.getString("nom_rec")));
             }
         } catch (SQLException ex) {
              Logger.getLogger(Reponse.class.getName()).log(Level.SEVERE, null, ex);
         }   
          return list;
     }
-    
+      public ObservableList<Reponse> afficherAll(){
+         String req="select * from reponse ";   
+         System.out.println(req);
+            ObservableList <Reponse> list=FXCollections.observableArrayList();
+         try {
+            ste=connection.createStatement();
+            rs=ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation"),rs.getString("nom_rec")));
+            }
+        } catch (SQLException ex) {
+             Logger.getLogger(Reponse.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+         return list;
+    }
      public void deleteReponse(String id){
         String req = "delete from reponse where id = ?";
         try {

@@ -70,9 +70,15 @@ public class ReponseController implements Initializable {
     @FXML
     private TextField ta_id;
     @FXML
-    private Button btn_ReponseConfirm1;
-    @FXML
     private TextField txtmail;
+    @FXML
+    private TableColumn<Reclamation,String> col_nom;
+    @FXML
+    private TextField tf_nomrec;
+    @FXML
+    private TableColumn<Reponse,String> col_nom_rec;
+    @FXML
+    private Button btn_mail;
 
     /**
      * Initializes the controller class.
@@ -85,19 +91,21 @@ public class ReponseController implements Initializable {
 
     public void showReclamation(){
         ObservableList<Reclamation> list = new ReclamationService().readAllForAdmin();//we statically set the client id to just show his reclamations
-        col_id.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id"));
+         col_id.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("nom"));
         col_desc.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("description"));
         col_date.setCellValueFactory(new PropertyValueFactory<Reclamation, Date>("date_reclamation"));
         col_image.setCellValueFactory(new PropertyValueFactory<Reclamation, ImageView>("img"));
-        col_clientId.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id_client"));
-
+      
         tv_reclamation.setItems(list);
     }
     @FXML
     private void tableClicked(MouseEvent event) {
+        
         Reclamation rec = tv_reclamation.getSelectionModel().getSelectedItem();
         
         tf_idReclamation.setText(Integer.toString(rec.getId()));
+          tf_nomrec.setText(rec.getNom());
         
         
         showRepo(rec.getId());
@@ -108,13 +116,14 @@ public class ReponseController implements Initializable {
         ObservableList<Reponse> list = new ReponseService().afficherReponse(id);
         Col_id_Rec.setCellValueFactory(new PropertyValueFactory<Reponse, Integer>("id"));
         col_text.setCellValueFactory(new PropertyValueFactory<Reponse, String>("text"));
+        col_nom_rec.setCellValueFactory(new PropertyValueFactory<Reponse, String>("nom_rec"));
         tv_reponse.setItems(list);
     }
 
     @FXML
     private void addReponse(MouseEvent event) {
          Reclamation rec = tv_reclamation.getSelectionModel().getSelectedItem();
-        Reponse r = new Reponse(ta_reponse.getText(), Integer.parseInt(tf_idReclamation.getText()));
+        Reponse r = new Reponse(ta_reponse.getText(), Integer.parseInt(tf_idReclamation.getText()),tf_nomrec.getText());
           if ((ta_reponse.getText().isEmpty())) {
                         erreur.setText(" la réponse ne doit pas etre vide ");
                         erreur.setVisible(true);
@@ -159,25 +168,27 @@ public class ReponseController implements Initializable {
        
     }
 
-    @FXML
-    private void tableClickedd(MouseEvent event) {
-        
-         Reclamation rec = tv_reclamation.getSelectionModel().getSelectedItem();
+   @FXML
+    private void clicked(MouseEvent event) {
+               Reclamation rec = tv_reclamation.getSelectionModel().getSelectedItem();
        
          Reponse rep = tv_reponse.getSelectionModel().getSelectedItem();
+          ta_id.setText(Integer.toString(rep.getId()));
+         tf_nomrec.setText(rep.getNom_rec());
          
          ta_reponse.setText(rep.getText());
-         ta_id.setText(Integer.toString(rep.getId()));
+        
       
         showRepo(rec.getId());
     }
 
     @FXML
     private void mail(ActionEvent event) {
-    MailerService m=new MailerService();
+          MailerService m=new MailerService();
     m.replyMail(txtmail.getText(), "User", "Réclamation traitée", "Bonjour ! votre réclamation a été traitée");
     }
- 
+
+  
      
 
       

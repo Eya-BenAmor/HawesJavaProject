@@ -13,28 +13,28 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIControllers.ReclamationController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="-11.0" layoutY="3.0" prefHeight="642.0" prefWidth="1012.0" style="-fx-background-color: #C2F9A7;">
+      <AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="1012.0" style="-fx-background-color: #C2F9A7;">
          <children>
             <TextField fx:id="tf_id" layoutX="582.0" layoutY="126.0" prefHeight="26.0" prefWidth="294.0" />
-            <TextArea fx:id="ta_desc" layoutX="151.0" layoutY="112.0" prefHeight="118.0" prefWidth="293.0" />
-            <DatePicker fx:id="dp_date" layoutX="151.0" layoutY="59.0" prefHeight="26.0" prefWidth="294.0" />
-            <ImageView fx:id="iv_image" fitHeight="160.0" fitWidth="203.0" layoutX="189.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
+            <TextArea fx:id="ta_desc" layoutX="150.0" layoutY="139.0" prefHeight="118.0" prefWidth="293.0" />
+            <DatePicker fx:id="dp_date" layoutX="150.0" layoutY="45.0" prefHeight="26.0" prefWidth="294.0" />
+            <ImageView fx:id="iv_image" fitHeight="160.0" fitWidth="203.0" layoutX="174.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="29.0" layoutY="157.0" text="description">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="58.0" text="date_reclamation">
+            <Label layoutX="5.0" layoutY="44.0" text="date_reclamation">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="57.0" layoutY="321.0" text="image">
+            <Label layoutX="58.0" layoutY="334.0" text="image">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="button_image" layoutX="223.0" layoutY="436.0" mnemonicParsing="false" onMouseClicked="#uploadImage" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #96F26A;" text="Upload" textFill="#408c2d">
+            <Button fx:id="button_image" layoutX="223.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#uploadImage" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #96F26A;" text="Upload" textFill="#408c2d">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -50,20 +50,21 @@
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <TextField fx:id="tf_image" disable="true" layoutX="184.0" layoutY="401.0" prefHeight="26.0" prefWidth="213.0" />
-            <TableView fx:id="tv_reclamation" layoutX="460.0" layoutY="72.0" onMouseClicked="#tableClicked" prefHeight="304.0" prefWidth="498.0" style="-fx-background-color: #C6C8C5;">
+            <TextField fx:id="tf_image" disable="true" layoutX="169.0" layoutY="427.0" prefHeight="26.0" prefWidth="213.0" />
+            <TableView fx:id="tv_reclamation" layoutX="493.0" layoutY="77.0" onMouseClicked="#tableClicked" prefHeight="304.0" prefWidth="498.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="0.0" text="ID" />
-                  <TableColumn fx:id="col_date" prefWidth="140.0" text="Date" />
-                  <TableColumn fx:id="col_desc" minWidth="0.0" prefWidth="224.800048828125" text="Description" />
-                  <TableColumn fx:id="col_image" minWidth="0.0" prefWidth="140.0001220703125" text="Image" />
+                  <TableColumn fx:id="col_date" prefWidth="100.800048828125" text="Date" />
+                  <TableColumn fx:id="col_image" minWidth="0.0" prefWidth="113.5999755859375" text="Image" />
+                  <TableColumn fx:id="col_desc" minWidth="0.0" prefWidth="183.20001220703125" text="Description" />
+                  <TableColumn fx:id="col_nom" prefWidth="98.39996337890625" text="Nom" />
                </columns>
             </TableView>
             <Button fx:id="clear" layoutX="8.0" layoutY="542.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="clear all" textFill="#408c2d">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Label layoutX="189.0" layoutY="14.0" text="Reclamations">
+            <Label layoutX="383.0" layoutY="1.0" text="Reclamations">
                <font>
                   <Font name="System Bold" size="27.0" />
                </font>
@@ -80,11 +81,11 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="erreur" layoutX="18.0" layoutY="238.0" prefHeight="27.0" prefWidth="203.0" textFill="#c7431e">
+            <Label fx:id="erreur" layoutX="179.0" layoutY="257.0" prefHeight="27.0" prefWidth="203.0" textFill="#c7431e">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="erreurimage" layoutX="158.0" layoutY="479.0" prefHeight="35.0" prefWidth="269.0" textFill="#c7431e">
+            <Label fx:id="erreurimage" layoutX="133.0" layoutY="505.0" prefHeight="35.0" prefWidth="269.0" textFill="#c7431e">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -93,6 +94,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Label layoutX="40.0" layoutY="96.0" text="nom">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="ta_nom" layoutX="149.0" layoutY="90.0" prefHeight="39.0" prefWidth="294.0" />
          </children>
       </AnchorPane>
    </children>

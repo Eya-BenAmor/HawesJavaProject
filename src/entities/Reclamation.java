@@ -14,6 +14,56 @@ import javafx.scene.image.ImageView;
  */
 public class Reclamation {
        private int id;
+       private String nom;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public Reclamation(String nom, String description, Date date_reclamation, String image, int id_client) {
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.id_client = id_client;
+    }
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", date_reclamation=" + date_reclamation + ", image=" + image + ", id_client=" + id_client + ", img=" + img + '}';
+    }
+
+    public Reclamation(String nom, String description, Date date_reclamation, String image, int id_client, ImageView img) {
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.id_client = id_client;
+        this.img = img;
+    }
+
+    public Reclamation(int id, String nom, String description, Date date_reclamation, String image, int id_client) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.id_client = id_client;
+    }
+
+    public Reclamation(int id, String nom, String description, Date date_reclamation, String image, int id_client, ImageView img) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.id_client = id_client;
+        this.img = img;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
     private  String description;
     private Date date_reclamation;
     private String image;
