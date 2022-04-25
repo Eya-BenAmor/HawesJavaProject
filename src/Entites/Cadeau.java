@@ -23,7 +23,7 @@ public class Cadeau {
         this.competition = competition;
     }
 
-    public Cadeau(int id, String categorie, String description, String nom, int competition) {
+    public Cadeau(int id, String nom, String categorie, String description, int competition) {
         this.id = id;
         this.categorie = categorie;
         this.description = description;

@@ -7,6 +7,7 @@ package gui;
 
 import Entites.Cadeau;
 import Service.ServiceCadeau;
+import Utils.MailerService;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Connection;
@@ -14,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -74,6 +76,8 @@ public class CadeauController implements Initializable {
     private Label errcatgoriecad;
     @FXML
     private Label errdescriptioncad;
+    @FXML
+    private TableColumn<Cadeau, Integer> col_id;
 
     /**
      * Initializes the controller class.
@@ -94,7 +98,7 @@ public class CadeauController implements Initializable {
         col_Categorie_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, String>("categorie"));
         col_Description_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, String>("description"));
         col_Competition_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, Integer>("competition"));
-       // col_id.setCellValueFactory(new PropertyValueFactory<Cadeau, Integer>("id"));
+         col_id.setCellValueFactory(new PropertyValueFactory<Cadeau, Integer>("id"));
         
         
         tv_Cadeau.setItems(s);
@@ -104,6 +108,7 @@ public class CadeauController implements Initializable {
                      Cadeau rec = tv_Cadeau.getSelectionModel().getSelectedItem();
 
                 tf_id.setText(Integer.toString(rec.getId()));
+                
             text_Nom_Cadeau.setText((rec.getNom()));
             text_Description_Cadeau.setText((rec.getDescription()));
          
@@ -141,6 +146,8 @@ public class CadeauController implements Initializable {
         
        
         serv.addCadeau(f);
+        MailerService m=new MailerService();
+    m.replyMail("mezen.bayounes@esprit.tn", "User", "ajout de cadeau", "Bonjour !un Cadeau ajoutee");
            showCadeau();
     }
  private void selectid() {
@@ -168,9 +175,12 @@ public class CadeauController implements Initializable {
     @FXML
     private void updateCadeau(MouseEvent event) {
          ServiceCadeau serv = new ServiceCadeau();
-               Cadeau f=new Cadeau(text_Nom_Cadeau.getText(),text_Categorie_Cadeau.getText(), text_Description_Cadeau.getText(),parseInt(comboBox.getValue().toString()));
+               Cadeau f=new Cadeau(Integer.parseInt(tf_id.getText()),text_Nom_Cadeau.getText(),text_Categorie_Cadeau.getText(), text_Description_Cadeau.getText(),parseInt(comboBox.getValue().toString()));
 
         System.out.println(parseInt(comboBox.getValue().toString()));
+     
+
+
         
        
         serv.updateCadeau(f);
@@ -181,9 +191,11 @@ public class CadeauController implements Initializable {
     private void deleteCadeau(MouseEvent event) {
                  ServiceCadeau s= new ServiceCadeau();
 
-          s.deleteCadeau(col_Nom_Cadeau.getText());
+          s.deleteCadeau(tf_id.getText());
         showCadeau();
         
     }
+
+
     
 }

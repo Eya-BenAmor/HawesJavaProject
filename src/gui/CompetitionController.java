@@ -7,6 +7,7 @@ package gui;
 
 import Entites.Competition;
 import Service.ServiceCompetition;
+import Utils.MailerService;
 import java.io.File;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
@@ -150,6 +151,8 @@ public class CompetitionController implements Initializable {
         
           
         s.addCompetition(c);
+        MailerService m=new MailerService();
+    m.replyMail("mezen.bayounes@esprit.tn", "User", "ajout de Competition", "Bonjour !une Competition ajoutee");
         showCompetition();
            
     }

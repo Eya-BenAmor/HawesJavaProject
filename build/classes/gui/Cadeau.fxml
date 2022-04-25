@@ -40,12 +40,13 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <TableView fx:id="tv_Cadeau" layoutX="293.0" layoutY="120.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="629.0" style="-fx-background-color: #C6C8C5;">
+            <TableView fx:id="tv_Cadeau" layoutX="285.0" layoutY="120.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="570.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="col_Nom_Cadeau" prefWidth="132.0" text="Nom" />
                   <TableColumn fx:id="col_Categorie_Cadeau" prefWidth="142.39993286132812" text="Categorie" />
                   <TableColumn fx:id="col_Description_Cadeau" prefWidth="144.800048828125" text="Description" />
-                  <TableColumn fx:id="col_Competition_Cadeau" prefWidth="240.0" text="Competition" />
+                  <TableColumn fx:id="col_Competition_Cadeau" prefWidth="147.199951171875" text="Competition" />
+                  <TableColumn fx:id="col_id" minWidth="0.800048828125" prefWidth="0.800048828125" text="id" />
                </columns>
             </TableView>
             <Label layoutX="423.0" layoutY="26.0" text="Cadeau">
@@ -92,7 +93,7 @@
             </Label>
             <TextField fx:id="text_Description_Cadeau" layoutX="14.0" layoutY="183.0" prefHeight="26.0" prefWidth="166.0" />
             <ComboBox fx:id="comboBox" layoutX="17.0" layoutY="260.0" prefWidth="150.0" />
-            <Label fx:id="errdescriptioncad" layoutX="180.0" layoutY="221.0" prefHeight="39.0" prefWidth="99.0" textFill="RED">
+            <Label fx:id="errdescriptioncad" layoutX="193.0" layoutY="166.0" prefHeight="39.0" prefWidth="99.0" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>
