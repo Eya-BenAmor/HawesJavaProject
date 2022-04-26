@@ -12,12 +12,15 @@ import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.time.Duration;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -25,7 +28,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -73,10 +79,6 @@ public class CadeauController implements Initializable {
     @FXML
     private Label errnomcad;
     @FXML
-    private Label errcatgoriecad;
-    @FXML
-    private Label errdescriptioncad;
-    @FXML
     private TableColumn<Cadeau, Integer> col_id;
 
     /**
@@ -123,21 +125,61 @@ public class CadeauController implements Initializable {
           ServiceCadeau serv = new ServiceCadeau();
            if (text_Nom_Cadeau.getText().isEmpty())
          {
-                        errnomcad.setText("nom Invalide");
-                        errnomcad.setVisible(true);
+                       
+                         Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid nom")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                                          notificationBuilder.darkStyle();
+                  notificationBuilder.showError();
                   
                         return;
                     }  if (text_Categorie_Cadeau.getText().isEmpty())
          {
-                        errcatgoriecad.setText("categorie Invalide");
-                        errcatgoriecad.setVisible(true);
+                        Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid Categorie")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                     notificationBuilder.darkStyle();
+                  notificationBuilder.showError();
                   
                         return;
                     }  if (text_Description_Cadeau.getText().isEmpty())
          {
-                        errdescriptioncad.setText("description Invalide");
-                        errdescriptioncad.setVisible(true);
-                  
+             
+               Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid Description")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showError();
+             
+             
                         return;
                     } 
                Cadeau f=new Cadeau(text_Nom_Cadeau.getText(),text_Categorie_Cadeau.getText(), text_Description_Cadeau.getText(),parseInt(comboBox.getValue().toString()));
@@ -148,6 +190,24 @@ public class CadeauController implements Initializable {
         serv.addCadeau(f);
         MailerService m=new MailerService();
     m.replyMail("mezen.bayounes@esprit.tn", "User", "ajout de cadeau", "Bonjour !un Cadeau ajoutee");
+              Image img=new Image("/gui/img.png");
+
+     Notifications notificationBuilder= Notifications.create()
+                  .title("succes")
+                  .text("cadeau ajoute")
+                  .graphic(new ImageView(img))
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showInformation();
+             
            showCadeau();
     }
  private void selectid() {
@@ -178,12 +238,25 @@ public class CadeauController implements Initializable {
                Cadeau f=new Cadeau(Integer.parseInt(tf_id.getText()),text_Nom_Cadeau.getText(),text_Categorie_Cadeau.getText(), text_Description_Cadeau.getText(),parseInt(comboBox.getValue().toString()));
 
         System.out.println(parseInt(comboBox.getValue().toString()));
-     
+     serv.updateCadeau(f);
+          Image img=new Image("/gui/img.png");
 
+ Notifications notificationBuilder= Notifications.create()
+                  .title("succes")
+                  .text("cadeau updated")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
 
+                  notificationBuilder.showInformation();
         
-       
-        serv.updateCadeau(f);
            showCadeau();
     }
 
@@ -192,10 +265,33 @@ public class CadeauController implements Initializable {
                  ServiceCadeau s= new ServiceCadeau();
 
           s.deleteCadeau(tf_id.getText());
-        showCadeau();
+          Image img=new Image("/gui/img.png");
+           Notifications notificationBuilder= Notifications.create()
+                   
+                  .title("succes")
+                  .text("cadeau supprime avec succes")
+                  .graphic(new ImageView(img))
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showInformation();
+         
+                          showCadeau();
+
+                  }
+                  
+                          
+        
         
     }
 
 
     
-}
+

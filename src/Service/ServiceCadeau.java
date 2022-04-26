@@ -87,11 +87,10 @@ String requete="select * from cadeau";
         try {
             pst=connexion.prepareStatement(req);
          
-            pst.setString(4, c.getNom());
+              pst.setInt(1,c.getCompetition());
              pst.setString(2,c.getCategorie());
               pst.setString(3,c.getDescription());
-              pst.setInt(1,c.getCompetition());
-             
+               pst.setString(4, c.getNom());
                 pst.setInt(5,c.getId());
       
           

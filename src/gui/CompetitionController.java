@@ -16,8 +16,11 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -28,6 +31,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -124,23 +128,64 @@ public class CompetitionController implements Initializable {
     private void addCompetition(MouseEvent event) {
       if (text_Nom_Competition.getText().isEmpty())
          {
-                        errnomcomp.setText("nom Invalide");
-                        errnomcomp.setVisible(true);
-                  
+                        Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid Nom")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showError();
+             
                         return;
                     } 
         
            if (text_Distance_Competition.getText().isEmpty())
          {
-                        erdistancecomp.setText("Distance Invalide");
-                        erdistancecomp.setVisible(true);
+                       Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid Distance")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showError();
+             
                   
                         return;
                     } 
           if (text_Prix_Competition.getText().isEmpty())
          {
-                        erprixcomp.setText("Prix Invalide");
-                        erprixcomp.setVisible(true);
+                        Notifications notificationBuilder= Notifications.create()
+                  .title("erreur")
+                  .text("invalid Competition")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showError();
+             
                   
                         return;
                     } 
@@ -153,6 +198,21 @@ public class CompetitionController implements Initializable {
         s.addCompetition(c);
         MailerService m=new MailerService();
     m.replyMail("mezen.bayounes@esprit.tn", "User", "ajout de Competition", "Bonjour !une Competition ajoutee");
+     Notifications notificationBuilder= Notifications.create()
+                  .title("succes")
+                  .text("Competition ajoute")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showInformation();
         showCompetition();
            
     }
@@ -185,6 +245,21 @@ public class CompetitionController implements Initializable {
               Competition c = new Competition(Integer.parseInt(tf_id.getText()),text_Nom_Competition.getText(), parseInt(text_Distance_Competition.getText()), parseInt(text_Prix_Competition.getText()),d);
         
               s.updateCompetition(c);
+               Notifications notificationBuilder= Notifications.create()
+                  .title("succes")
+                  .text("cadeau updated")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showInformation();
         showCompetition();
     }
 
@@ -192,6 +267,21 @@ public class CompetitionController implements Initializable {
     private void deleteCom(MouseEvent event) {
         
            s.deleteCompetition(tf_id.getText());
+            Notifications notificationBuilder= Notifications.create()
+                  .title("succes")
+                  .text("cadeau supprimer avec succes")
+                  .graphic(null)
+                  .position(Pos.CENTER)
+                  .onAction(new EventHandler <ActionEvent>()
+                  {@Override
+                  public void handle(ActionEvent event)
+                  {System.out.println("clicked");
+                  }
+                  }
+                  );
+                 notificationBuilder.darkStyle();
+
+                  notificationBuilder.showInformation();
         showCompetition();
     }
 

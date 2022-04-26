@@ -76,26 +76,12 @@
                      </font>
                   </Label>
                   <TextField fx:id="text_Prix_Competition" layoutX="13.0" layoutY="248.0" prefHeight="26.0" prefWidth="166.0" />
-                  <Label fx:id="errnomcomp" layoutX="215.0" layoutY="71.0" prefHeight="26.0" prefWidth="174.0" textFill="#f41414">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Label>
-                  <Label fx:id="erdistancecomp" layoutX="201.0" layoutY="119.0" prefHeight="27.0" prefWidth="150.0" textFill="RED">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="erdatecomp" layoutX="165.0" layoutY="186.0" textFill="RED">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="erprixcomp" layoutX="201.0" layoutY="253.0" textFill="RED">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="erprixcomp" layoutX="198.0" layoutY="248.0" prefHeight="27.0" prefWidth="144.0" textFill="RED">
                      <font>
                         <Font size="14.0" />
                      </font>

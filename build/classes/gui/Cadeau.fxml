@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadeauController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="634.0" prefWidth="922.0" style="-fx-background-color: #C2F9A7;">
+      <AnchorPane id="AnchorPane" layoutY="6.0" prefHeight="634.0" prefWidth="922.0" style="-fx-background-color: #C2F9A7;">
          <children>
             <TextField fx:id="tf_id" layoutX="369.0" layoutY="351.0" />
             <TextField fx:id="text_Nom_Cadeau" layoutX="13.0" layoutY="66.0" prefHeight="26.0" prefWidth="166.0" />
@@ -40,7 +40,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <TableView fx:id="tv_Cadeau" layoutX="285.0" layoutY="120.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="570.0" style="-fx-background-color: #C6C8C5;">
+            <TableView fx:id="tv_Cadeau" layoutX="294.0" layoutY="107.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="570.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="col_Nom_Cadeau" prefWidth="132.0" text="Nom" />
                   <TableColumn fx:id="col_Categorie_Cadeau" prefWidth="142.39993286132812" text="Categorie" />
@@ -76,11 +76,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="errcatgoriecad" layoutX="201.0" layoutY="119.0" prefHeight="27.0" prefWidth="150.0" textFill="RED">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Label fx:id="erdatecomp" layoutX="165.0" layoutY="186.0" textFill="RED">
                <font>
                   <Font size="14.0" />
@@ -93,11 +88,6 @@
             </Label>
             <TextField fx:id="text_Description_Cadeau" layoutX="14.0" layoutY="183.0" prefHeight="26.0" prefWidth="166.0" />
             <ComboBox fx:id="comboBox" layoutX="17.0" layoutY="260.0" prefWidth="150.0" />
-            <Label fx:id="errdescriptioncad" layoutX="193.0" layoutY="166.0" prefHeight="39.0" prefWidth="99.0" textFill="RED">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </children>
