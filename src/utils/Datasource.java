@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author MSI
+ * @author Yahya
  */
 public class Datasource {
     private String url="jdbc:mysql://localhost:3306/hawes";
