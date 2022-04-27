@@ -16,9 +16,10 @@ public class Randonnee {
 
  private int id;
      private float prix;
-    private String nom_rando,description,destination,duree_rando,categorie_rando;
+    private String nom_rando,description,destination,duree_rando,categorie_rando,image;
     private Date date_rando;
     private float note;
+    
 
     public Randonnee(int id) {
         this.id = id;
@@ -117,9 +118,10 @@ public Randonnee() {
 
     @Override
     public String toString() {
-        return "Randonnee{" + "id=" + id + ", prix=" + prix + ", nom_rando=" + nom_rando + ", description=" + description + ", destination=" + destination + ", duree_rando=" + duree_rando + ", categorie_rando=" + categorie_rando + ", date_rando=" + date_rando + '}';
+        return "Randonnee{" + "id=" + id + ", prix=" + prix + ", nom_rando=" + nom_rando + ", description=" + description + ", destination=" + destination + ", duree_rando=" + duree_rando + ", categorie_rando=" + categorie_rando + ", image=" + image + ", date_rando=" + date_rando + '}';
     }
 
+   
     
     @Override
     public boolean equals(Object obj) {
@@ -140,6 +142,26 @@ public Randonnee() {
         }
        
         return true;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Randonnee(int id,String nom_rando, String destination, String description, String categorie_rando, Date date_rando , String duree_rando,float prix,String image) {
+        this.id = id;
+        this.prix = prix;
+        this.nom_rando = nom_rando;
+        this.description = description;
+        this.destination = destination;
+        this.duree_rando = duree_rando;
+        this.categorie_rando = categorie_rando;
+        this.image = image;
+        this.date_rando = date_rando;
     }
 
   

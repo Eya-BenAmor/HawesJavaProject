@@ -97,6 +97,38 @@ public class ParticipantService implements iParticipantService {
         return list;
 
     }
-  
+   public int rechercherRandonnee(String nom) {
+
+    String sql = "select * from randonnee where nom_rando=\""+ nom + "\"";
+      try {
+            ste = con.prepareStatement(sql);
+            ResultSet resultSet = ste.executeQuery(sql);
+            if (resultSet.next()) {
+              return resultSet.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0 ;
+    }
+    public int rechercherUser(String nom) {
+
+    String sql = "select * from user where nom=\""+ nom + "\"";
+      try {
+            ste = con.prepareStatement(sql);
+            ResultSet resultSet = ste.executeQuery(sql);
+            if (resultSet.next()) {
+              return resultSet.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0 ;
+    }
+    
+    
+    
     
 }

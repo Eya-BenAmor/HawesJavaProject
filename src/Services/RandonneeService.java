@@ -35,7 +35,7 @@ public class RandonneeService implements iRandonneeService {
     @Override
     public void ajouterRandonnee(Randonnee r) {
 
-        String requete = "INSERT INTO randonnee (nom_rando, destination, description, categorie_rando, date_rando, duree_rando, prix) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String requete = "INSERT INTO randonnee (nom_rando, destination, description, categorie_rando, date_rando, duree_rando, prix,image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             pst = con.prepareStatement(requete);
             pst.setString(1, r.getNom_rando());
@@ -46,7 +46,8 @@ public class RandonneeService implements iRandonneeService {
             pst.setString(6, r.getDuree_rando());
 
             pst.setFloat(7, r.getPrix());
-            pst.executeUpdate();
+             pst.setString(8, r.getImage());
+            pst.executeUpdate(); //ajout modif supp
 
         } catch (SQLException ex) {
             Logger.getLogger(RandonneeService.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +57,7 @@ public class RandonneeService implements iRandonneeService {
     @Override
     public void modifierRandonnee(Randonnee r, int id) {
         try {
-            String requete = " update randonnee set nom_rando=? , destination=? , description=? , categorie_rando=?, date_rando=? ,duree_rando=? ,prix=?  where id='" + id + "'";
+            String requete = " update randonnee set nom_rando=? , destination=? , description=? , categorie_rando=?, date_rando=? ,duree_rando=? ,prix=?, image=?  where id='" + id + "'";
             pst = con.prepareStatement(requete);
             pst.setString(1, r.getNom_rando());
             pst.setString(2, r.getDestination());
@@ -66,6 +67,7 @@ public class RandonneeService implements iRandonneeService {
             pst.setString(6, r.getDuree_rando());
 
             pst.setFloat(7, r.getPrix());
+             pst.setString(8, r.getImage());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(RandonneeService.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +95,7 @@ public class RandonneeService implements iRandonneeService {
             res = ste.executeQuery(requete);
             while (res.next()) {
 
-                list.add(new Randonnee(res.getInt("id"), res.getString("nom_rando"), res.getString("destination"), res.getString("description"), res.getString("categorie_rando"), res.getDate("date_rando"), res.getString("duree_rando"), res.getFloat("prix")));
+                list.add(new Randonnee(res.getInt("id"), res.getString("nom_rando"), res.getString("destination"), res.getString("description"), res.getString("categorie_rando"), res.getDate("date_rando"), res.getString("duree_rando"), res.getFloat("prix"), res.getString("image")));
             }
 
         } catch (SQLException ex) {
@@ -103,6 +105,21 @@ public class RandonneeService implements iRandonneeService {
 
     }
    
-   
+   public Randonnee TrouverById(int id) {
+        Randonnee P = null;
+        String Req = "select * from randonnee where id=" + id + "";
+        try {
+            ste = con.createStatement();
+            res = ste.executeQuery(Req); //recherche
+            while (res.next()) {
+
+               P= new Randonnee(res.getInt("id"), res.getString("nom_rando"), res.getString("destination"), res.getString("description"), res.getString("categorie_rando"), res.getDate("date_rando"), res.getString("duree_rando"), res.getFloat("prix"), res.getString("image"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(RandonneeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return P;
+    }
 
 }
