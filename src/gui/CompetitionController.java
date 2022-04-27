@@ -5,7 +5,9 @@
  */
 package gui;
 
+import Entites.Cadeau;
 import Entites.Competition;
+import Service.ServiceCadeau;
 import Service.ServiceCompetition;
 import Utils.MailerService;
 import Utils.Navigation;
@@ -18,6 +20,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -52,10 +56,6 @@ public class CompetitionController implements Initializable {
     private Button but_update;
     @FXML
     private Button but_delete;
-    @FXML
-    
-  
-    private TextField text_recherche_competition;
     private TextField text_Distance_competition;
     private TextField text_Prix_competition;
     
@@ -89,6 +89,10 @@ public class CompetitionController implements Initializable {
     private Label erdatecomp;
     @FXML
     private Button nav;
+    @FXML
+    private TextField recherche;
+        ObservableList<Competition> dataList;
+
     /**
      * Initializes the controller class.
      */
@@ -290,6 +294,50 @@ public class CompetitionController implements Initializable {
                              
         Navigation nav = new Navigation();
                     nav.navigate(event, "gui", "/gui/Cadeau.fxml");
+    }
+
+    @FXML
+    private void cherche(ActionEvent event) {
+        col_Nom_competition.setCellValueFactory(new PropertyValueFactory<Competition, String>("Nom"));
+        col_Distance_competition.setCellValueFactory(new PropertyValueFactory<Competition, Integer>("distance"));
+        col_Date_competition.setCellValueFactory(new PropertyValueFactory<Competition, Date>("date"));
+        col_Prix_competition.setCellValueFactory(new PropertyValueFactory<Competition, Integer>("prix"));
+          
+         try{
+              ServiceCompetition serv = new ServiceCompetition();
+          dataList =serv.getAllComp();
+         
+          tv_Competition.setItems(dataList);
+          FilteredList<Competition> filtredData = new FilteredList<>(dataList, b -> true);
+          recherche.textProperty().addListener((observable, olValue, newValue)->{
+             filtredData.setPredicate(Competition-> {
+                 if(newValue == null|| newValue.isEmpty()){
+                     
+                     return true;
+                 }
+                 String lowerCaseFilter= newValue.toLowerCase();
+                 if(Competition.getNom().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }else if(String.valueOf(Competition.getDistance()).toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }else if(String.valueOf(Competition.getDate()).toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }
+                 else if(String.valueOf(Competition.getPrix()).indexOf(lowerCaseFilter)!=-1)
+                     return true;
+                     else
+                     return false;
+                 });
+             });
+         SortedList<Competition> sortedData = new SortedList<>(filtredData);
+         sortedData.comparatorProperty().bind(tv_Competition.comparatorProperty());
+         tv_Competition.setItems(sortedData);
+
+         }catch(Exception e){
+             System.out.println(e.getMessage());
+             
+         }
+
     }
 
 }

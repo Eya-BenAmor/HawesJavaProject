@@ -18,6 +18,8 @@ import java.time.Duration;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -54,8 +56,6 @@ public class CadeauController implements Initializable {
     private Button but_delete;
    
     @FXML
-    private TextField text_recherche_competition;
-    @FXML
     private TextField text_Categorie_Cadeau;
    
     @FXML
@@ -84,6 +84,9 @@ public class CadeauController implements Initializable {
     private TableColumn<Cadeau, Integer> col_id;
     @FXML
     private Button nav;
+    ObservableList<Cadeau> dataList;
+    @FXML
+    private TextField recherche;
 
     /**
      * Initializes the controller class.
@@ -297,6 +300,54 @@ public class CadeauController implements Initializable {
         Navigation nav = new Navigation();
                     nav.navigate(event, "gui", "/gui/Competition.fxml");
         
+    }
+
+
+    @FXML
+    private void cherche(ActionEvent event) {
+        
+        
+          
+       col_Nom_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, String>("nom"));
+        col_Categorie_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, String>("categorie"));
+        col_Description_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, String>("description"));
+        col_Competition_Cadeau.setCellValueFactory(new PropertyValueFactory<Cadeau, Integer>("competition"));
+          
+         try{
+              ServiceCadeau serv = new ServiceCadeau();
+          dataList =serv.getAll();
+         
+          tv_Cadeau.setItems(dataList);
+          FilteredList<Cadeau> filtredData = new FilteredList<>(dataList, b -> true);
+          recherche.textProperty().addListener((observable, olValue, newValue)->{
+             filtredData.setPredicate(Cadeau-> {
+                 if(newValue == null|| newValue.isEmpty()){
+                     
+                     return true;
+                 }
+                 String lowerCaseFilter= newValue.toLowerCase();
+                 if(Cadeau.getNom().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }else if(Cadeau.getCategorie().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }else if(String.valueOf(Cadeau.getCompetition()).toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                     return true;
+                 }
+                 else if(String.valueOf(Cadeau.getDescription()).indexOf(lowerCaseFilter)!=-1)
+                     return true;
+                     else
+                     return false;
+                 });
+             });
+         SortedList<Cadeau> sortedData = new SortedList<>(filtredData);
+         sortedData.comparatorProperty().bind(tv_Cadeau.comparatorProperty());
+         tv_Cadeau.setItems(sortedData);
+
+         }catch(Exception e){
+             System.out.println(e.getMessage());
+             
+         }
+
     }
                   
        
