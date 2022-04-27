@@ -14,10 +14,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import Utils.Database;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 
@@ -66,7 +69,13 @@ String requete="select * from cadeau";
     }
        
     
-    
+     MediaPlayer mediaPlayer;
+	public void music() {
+		String s = "C:/Users/Mezen Bayounes/Desktop/home.mp3";
+		Media h = new Media(Paths.get(s).toUri().toString());
+		mediaPlayer =new MediaPlayer(h);
+		mediaPlayer.play();}
+
     
    public void deleteCadeau(String id){
         String req = "delete from cadeau where id = ?";

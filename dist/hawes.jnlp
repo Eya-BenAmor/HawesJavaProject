@@ -8,14 +8,15 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="hawes.jar" size="38122" download="eager" />
+    <jar href="hawes.jar" size="47369" download="eager" />
     <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\google-api-translate-java-0.97.jar" size="33654" download="eager" />
     <jar href="lib\javax.mail.jar" size="659033" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="hawes" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="gui.Hawes"  name="hawes" />
+  <jfx:javafx-desc  width="800" height="600" main-class="GUI.Hawes"  name="hawes" />
   <update check="always"/>
 </jnlp>

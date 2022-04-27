@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package GUI;
 
 import Entites.Cadeau;
 import Service.ServiceCadeau;
 import Utils.MailerService;
 import Utils.Navigation;
+import com.google.api.translate.Language;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
@@ -36,7 +37,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.controlsfx.control.Notifications;
-
+import javax.sound.sampled.*;
+import java.io.*;
 /**
  * FXML Controller class
  *
@@ -87,7 +89,7 @@ public class CadeauController implements Initializable {
     ObservableList<Cadeau> dataList;
     @FXML
     private TextField recherche;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -132,7 +134,7 @@ public class CadeauController implements Initializable {
           ServiceCadeau serv = new ServiceCadeau();
            if (text_Nom_Cadeau.getText().isEmpty())
          {
-                       
+                       serv.music();
                          Notifications notificationBuilder= Notifications.create()
                   .title("erreur")
                   .text("invalid nom")
@@ -349,7 +351,8 @@ public class CadeauController implements Initializable {
          }
 
     }
-                  
+
+    
        
     }
 
