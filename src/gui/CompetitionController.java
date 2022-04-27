@@ -8,7 +8,9 @@ package gui;
 import Entites.Competition;
 import Service.ServiceCompetition;
 import Utils.MailerService;
+import Utils.Navigation;
 import java.io.File;
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Date;
@@ -80,15 +82,13 @@ public class CompetitionController implements Initializable {
     private TableColumn<Competition,Integer> col_id;
     @FXML
     private TableColumn<?, ?> col_Nom_competition2;
-    @FXML
-    private Label errnomcomp;
-    @FXML
-    private Label erdistancecomp;
    
     @FXML
     private Label erprixcomp;
     @FXML
     private Label erdatecomp;
+    @FXML
+    private Button nav;
     /**
      * Initializes the controller class.
      */
@@ -247,7 +247,7 @@ public class CompetitionController implements Initializable {
               s.updateCompetition(c);
                Notifications notificationBuilder= Notifications.create()
                   .title("succes")
-                  .text("cadeau updated")
+                  .text("competition updated")
                   .graphic(null)
                   .position(Pos.CENTER)
                   .onAction(new EventHandler <ActionEvent>()
@@ -269,7 +269,7 @@ public class CompetitionController implements Initializable {
            s.deleteCompetition(tf_id.getText());
             Notifications notificationBuilder= Notifications.create()
                   .title("succes")
-                  .text("cadeau supprimer avec succes")
+                  .text("Competition supprimer avec succes")
                   .graphic(null)
                   .position(Pos.CENTER)
                   .onAction(new EventHandler <ActionEvent>()
@@ -283,6 +283,13 @@ public class CompetitionController implements Initializable {
 
                   notificationBuilder.showInformation();
         showCompetition();
+    }
+
+    @FXML
+    private void nav(ActionEvent event) throws IOException {
+                             
+        Navigation nav = new Navigation();
+                    nav.navigate(event, "gui", "/gui/Cadeau.fxml");
     }
 
 }

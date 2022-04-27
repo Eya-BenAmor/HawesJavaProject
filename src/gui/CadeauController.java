@@ -8,6 +8,8 @@ package gui;
 import Entites.Cadeau;
 import Service.ServiceCadeau;
 import Utils.MailerService;
+import Utils.Navigation;
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.Connection;
@@ -80,6 +82,8 @@ public class CadeauController implements Initializable {
     private Label errnomcad;
     @FXML
     private TableColumn<Cadeau, Integer> col_id;
+    @FXML
+    private Button nav;
 
     /**
      * Initializes the controller class.
@@ -286,10 +290,16 @@ public class CadeauController implements Initializable {
                           showCadeau();
 
                   }
+
+    @FXML
+    private void nav(ActionEvent event) throws IOException {
+                           
+        Navigation nav = new Navigation();
+                    nav.navigate(event, "gui", "/gui/Competition.fxml");
+        
+    }
                   
-                          
-        
-        
+       
     }
 
 
