@@ -134,38 +134,14 @@ public class UserService {
             
             return false;
     }
-    
-    public User getUser(int id) throws SQLException{
-    User u=new User();
-    
-    String req="SELECT * FROM `user` WHERE id=? ;";
-           
-            PreparedStatement pst =cnx.prepareStatement(req);
-            pst.setInt(1,id);
-
-            ResultSet rs=pst.executeQuery();
-            while(rs.next())
-            {
-               u.setId(rs.getInt(1));
-               u.setNom(rs.getString(2));
-               u.setPrenom(rs.getString(3));
-               u.setEmail(rs.getString(4));
-               u.setMdp(rs.getString(5));
-               u.setConfirmMdp(rs.getString(6));
-
-
-            }
-    return u;
-    }
-    
+        
     public User getUser(String email) throws SQLException{
     User u=new User();
     
-    String req="SELECT * FROM `utilisateur` WHERE nom=? OR email=? ;";
+    String req="SELECT * FROM `utilisateur` WHERE email=? ;";
            
             PreparedStatement pst =cnx.prepareStatement(req);
             pst.setString(1,email);
-            pst.setString(2,email);
 
             ResultSet rs=pst.executeQuery();
             while(rs.next())

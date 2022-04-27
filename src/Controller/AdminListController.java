@@ -7,7 +7,7 @@ package Controller;
 
 import Entity.Admin;
 import Services.AdminService;
-import static hawesjava.LoginController.dashBStage;
+import static Controller.LoginController.dashBStage;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,6 +37,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import org.apache.poi.hssf.usermodel.HSSFSheet;  
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;  
 import org.apache.poi.ss.usermodel.Cell;  
@@ -170,6 +172,18 @@ public class AdminListController implements Initializable {
         AdminListTable.getItems().clear();
         AdminListTable.setItems(Admin.searchAdmins(key));
     }
+
+    @FXML
+    private void OnHome(ActionEvent event) throws IOException {
+        Parent page1 = FXMLLoader.load(getClass().getResource("BackOffice.fxml"));
+        Scene scene = new Scene(page1, 900, 544);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Admins List");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    
 
 }
 

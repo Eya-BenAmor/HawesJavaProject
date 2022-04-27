@@ -21,7 +21,7 @@ public class HawesJava extends Application {
      public static Stage LoginStage=null;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AdminList.fxml"));
         
         Scene scene = new Scene(root);
         

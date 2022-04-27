@@ -31,5 +31,6 @@
       <Button fx:id="addBtn" layoutX="544.0" layoutY="84.0" mnemonicParsing="false" onAction="#OnAdd" prefHeight="25.0" prefWidth="95.0" text="Ajouter" />
       <TextField fx:id="tfSearch" layoutX="43.0" layoutY="46.0" onInputMethodTextChanged="#OnSearching" onKeyTyped="#Search" prefHeight="25.0" prefWidth="488.0" />
       <Button fx:id="searchBtn" layoutX="544.0" layoutY="46.0" mnemonicParsing="false" onAction="#OnSearch" prefHeight="25.0" prefWidth="95.0" text="Chercher" />
+      <Button layoutX="783.0" layoutY="481.0" mnemonicParsing="false" onAction="#OnHome" prefHeight="25.0" prefWidth="95.0" text="Home" />
    </children>
 </AnchorPane>

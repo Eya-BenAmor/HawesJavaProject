@@ -139,13 +139,13 @@ public class AdminService {
             return false;
     }
     
-    public Admin getAdmin(int id) throws SQLException{
+    public Admin getAdmin(String email) throws SQLException{
     Admin a =new Admin();
     
-    String req="SELECT * FROM `admin` WHERE id=? ;";
+    String req="SELECT * FROM `admin` WHERE email=? ;";
            
             PreparedStatement pst =cnx.prepareStatement(req);
-            pst.setInt(1,id);
+            pst.setString(1,email);
 
             ResultSet rs=pst.executeQuery();
             while(rs.next())

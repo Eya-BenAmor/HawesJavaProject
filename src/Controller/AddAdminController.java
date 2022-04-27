@@ -7,8 +7,7 @@ package Controller;
 
 import Entity.Admin;
 import Services.AdminService;
-import hawesjava.LoginController;
-import static hawesjava.LoginController.dashBStage;
+import static Controller.LoginController.dashBStage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
