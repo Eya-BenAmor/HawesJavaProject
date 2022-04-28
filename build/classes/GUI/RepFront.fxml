@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RepFrontController">
+   <children>
+      <Label fx:id="nomL" layoutX="42.0" layoutY="115.0" text="Nom randonnée">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="destinationL" layoutX="43.0" layoutY="184.0" text="Destination">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfId" layoutX="25.0" layoutY="93.0" visible="false" />
+      <Label fx:id="nomL1" layoutX="42.0" layoutY="91.0" text="Nom randonnée" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="destinationL1" layoutX="43.0" layoutY="157.0" text="Destination" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

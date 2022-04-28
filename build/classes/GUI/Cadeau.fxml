@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CadeauController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="-12.0" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;">
+         <children>
+            <TextField fx:id="tf_id" layoutX="369.0" layoutY="351.0" />
+            <TextField fx:id="text_Nom_Cadeau" layoutX="13.0" layoutY="66.0" prefHeight="26.0" prefWidth="166.0" />
+            <Label layoutX="20.0" layoutY="32.0" text="Nom Cadeau">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="155.0" text="Description">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="but_insert" layoutX="42.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#addCadeau" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Insert" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="but_update" layoutX="42.0" layoutY="490.0" mnemonicParsing="false" onMouseClicked="#updateCadeau" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Update" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="but_delete" layoutX="42.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#deleteCadeau" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Delete" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tv_Cadeau" layoutX="285.0" layoutY="93.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="570.0" style="-fx-background-color: #C6C8C5;">
+               <columns>
+                  <TableColumn fx:id="col_Nom_Cadeau" prefWidth="132.0" text="Nom" />
+                  <TableColumn fx:id="col_Categorie_Cadeau" prefWidth="142.39993286132812" text="Categorie" />
+                  <TableColumn fx:id="col_Description_Cadeau" prefWidth="144.800048828125" text="Description" />
+                  <TableColumn fx:id="col_Competition_Cadeau" prefWidth="147.199951171875" text="Competition" />
+                  <TableColumn fx:id="col_id" minWidth="0.800048828125" prefWidth="0.800048828125" text="id" />
+               </columns>
+            </TableView>
+            <Label layoutX="423.0" layoutY="26.0" text="Cadeau">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="recherche" layoutX="780.0" layoutY="53.0" onAction="#cherche" />
+            <Label layoutX="675.0" layoutY="52.0" text="Recherche :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="93.0" text="Categorie">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_Categorie_Cadeau" layoutX="13.0" layoutY="120.0" prefHeight="26.0" prefWidth="166.0" />
+            <Label layoutX="20.0" layoutY="221.0" text="Competition">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="errnomcad" layoutX="215.0" layoutY="71.0" prefHeight="26.0" prefWidth="174.0" textFill="#f41414">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="erdatecomp" layoutX="165.0" layoutY="186.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="erprixcomp" layoutX="201.0" layoutY="253.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_Description_Cadeau" layoutX="14.0" layoutY="183.0" prefHeight="26.0" prefWidth="166.0" />
+            <ComboBox fx:id="comboBox" layoutX="17.0" layoutY="260.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

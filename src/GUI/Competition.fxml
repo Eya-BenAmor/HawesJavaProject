@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CompetitionController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-11.0" layoutY="-4.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane id="AnchorPane" layoutX="1.0" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;">
+               <children>
+                  <TextField fx:id="tf_id" layoutX="369.0" layoutY="351.0" />
+                  <TextField fx:id="text_Nom_Competition" layoutX="13.0" layoutY="66.0" prefHeight="26.0" prefWidth="166.0" />
+                  <DatePicker fx:id="text_Date_Competition" layoutX="14.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0" />
+                  <Label layoutX="20.0" layoutY="32.0" text="Nom Competition">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="155.0" text="Date">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="but_insert" layoutX="42.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#addCompetition" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Insert" textFill="#408c2d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="but_update" layoutX="42.0" layoutY="490.0" mnemonicParsing="false" onMouseClicked="#updateComp" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Update" textFill="#408c2d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="but_delete" layoutX="42.0" layoutY="549.0" mnemonicParsing="false" onMouseClicked="#deleteCom" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Delete" textFill="#408c2d">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tv_Competition" layoutX="268.0" layoutY="92.0" onMouseClicked="#tableClicked" prefHeight="487.0" prefWidth="574.0" style="-fx-background-color: #C6C8C5;">
+                     <columns>
+                        <TableColumn fx:id="col_Nom_competition" prefWidth="180.79998779296875" text="Nom" />
+                        <TableColumn fx:id="col_Distance_competition" prefWidth="140.800048828125" text="Distance" />
+                        <TableColumn fx:id="col_Date_competition" prefWidth="116.0" text="Date " />
+                        <TableColumn fx:id="col_Prix_competition" minWidth="0.0" prefWidth="135.199951171875" text="Prix" />
+                        <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="0.0" text="id" />
+                        <TableColumn fx:id="col_Nom_competition2" minWidth="0.0" prefWidth="0.0" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="423.0" layoutY="26.0" text="Competition ">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="recherche" layoutX="780.0" layoutY="53.0" onAction="#cherche" />
+                  <Label layoutX="675.0" layoutY="52.0" text="Recherche :">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="93.0" text="Distance ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="text_Distance_Competition" layoutX="13.0" layoutY="120.0" prefHeight="26.0" prefWidth="166.0" />
+                  <Label layoutX="20.0" layoutY="221.0" text="Prix">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="text_Prix_Competition" layoutX="13.0" layoutY="248.0" prefHeight="26.0" prefWidth="166.0" />
+                  <Label fx:id="erdatecomp" layoutX="165.0" layoutY="186.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="erprixcomp" layoutX="201.0" layoutY="253.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

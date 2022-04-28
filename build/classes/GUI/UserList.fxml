@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="MainAnchor" prefHeight="544.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserListController">
+   <children>
+      <TableView fx:id="UserListTable" layoutX="33." layoutY="36.1" prefHeight="460.0" prefWidth="488.0">
+        <columns>
+          <TableColumn fx:id="UserLn" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="UserFn" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="UserEmail" prefWidth="336.0" text="Email" />
+        </columns>
+      </TableView>
+      <Button fx:id="updBtn" layoutX="534.0" layoutY="36.0" mnemonicParsing="false" onAction="#OnUpdate" prefHeight="25.0" prefWidth="95.0" text="Modifier" />
+      <Button fx:id="delBtn" layoutX="534.0" layoutY="70.0" mnemonicParsing="false" onAction="#OnDelete" prefHeight="25.0" prefWidth="95.0" text="Supprimer" />
+      <TextField fx:id="tfUserLn" layoutX="611.0" layoutY="168.0" prefHeight="25.0" prefWidth="260.0" />
+      <TextField fx:id="tfUserFn" layoutX="611.0" layoutY="213.0" prefHeight="25.0" prefWidth="260.0" />
+      <TextField fx:id="tfUserEmail" layoutX="611.0" layoutY="257.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="527.0" layoutY="172.0" prefHeight="17.0" prefWidth="95.0" text="Nom" />
+      <Label layoutX="527.0" layoutY="217.0" prefHeight="17.0" prefWidth="95.0" text="Prenom" />
+      <Label layoutX="527.0" layoutY="262.0" prefHeight="17.0" prefWidth="95.0" text="Email" />
+      <Button fx:id="UPDbtn" layoutX="655.0" layoutY="309.0" mnemonicParsing="false" onAction="#OnUpDate" prefHeight="25.0" prefWidth="173.0" text="Update" />
+      <Button fx:id="pdfBtn" layoutX="534.0" layoutY="105.0" mnemonicParsing="false" onAction="#OnPdf" prefHeight="25.0" prefWidth="95.0" text="PDF file" />
+   </children>
+</AnchorPane>

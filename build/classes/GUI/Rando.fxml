@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="categ" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandoController">
+   <children>
+      <Label layoutX="22.0" layoutY="24.0" text="Nom randonnée" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNom" layoutX="22.0" layoutY="44.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="703.0" />
+      <Label layoutX="22.0" layoutY="92.0" text="Destination" textFill="#4ea651" AnchorPane.rightAnchor="802.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDestination" layoutX="22.0" layoutY="124.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Label layoutX="22.0" layoutY="155.0" text="Catégorie" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="categorie" layoutX="22.0" layoutY="186.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Label layoutX="22.0" layoutY="219.0" text="Date " textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dateRando" layoutX="22.0" layoutY="249.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Label layoutX="22.0" layoutY="284.0" text="Durée" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDuree" layoutX="22.0" layoutY="314.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Label layoutX="22.0" layoutY="346.0" text="Prix" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPrix" layoutX="22.0" layoutY="373.0" prefHeight="26.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Label layoutX="22.0" layoutY="404.0" text="Description" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDescription" layoutX="22.0" layoutY="433.0" prefHeight="82.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
+      <Button layoutX="392.0" layoutY="573.0" mnemonicParsing="false" onAction="#AjouterRandonnee" prefHeight="26.0" prefWidth="87.0" text="Ajouter" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableRando" layoutX="203.0" layoutY="63.0" onMousePressed="#handleMouseAction" prefHeight="428.0" prefWidth="687.0">
+         <columns>
+            <TableColumn fx:id="nomAff" prefWidth="115.19994962215424" text="Nom" />
+            <TableColumn fx:id="destinationAff" minWidth="0.0" prefWidth="115.19994962215424" text="Destination" />
+            <TableColumn fx:id="categorieAff" prefWidth="115.19994962215424" text="Categorie" />
+            <TableColumn fx:id="dateAff" prefWidth="115.19994962215424" text="Date" />
+            <TableColumn fx:id="dureeAff" prefWidth="115.19994962215424" text="Durée" />
+            <TableColumn fx:id="prixAff" prefWidth="115.19994962215424" text="Prix" />
+            <TableColumn fx:id="descriptionAff" prefWidth="115.19994962215424" text="Description" />
+         </columns>
+      </TableView>
+      <Button layoutX="509.0" layoutY="573.0" mnemonicParsing="false" onAction="#ModifierRandonnee" prefHeight="26.0" prefWidth="87.0" text="Modifier" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="624.0" layoutY="573.0" mnemonicParsing="false" onAction="#SupprimerRandonnee" prefHeight="26.0" prefWidth="87.0" text="Supprimer" textFill="#4ea651">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfId" layoutX="5.0" layoutY="2.0" visible="false" />
+      <Label fx:id="tfimage" layoutX="22.0" layoutY="530.0" text="Image" textFill="#4ea651">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_inserer_image" layoutX="23.0" layoutY="555.0" mnemonicParsing="false" onAction="#insert_image" prefHeight="26.0" prefWidth="150.0" text="Insérer une image" />
+      <Label fx:id="file_path" layoutX="22.0" layoutY="599.0" prefHeight="26.0" prefWidth="237.0" style="-fx-background-color: white; -fx-background-radius: 180; -fx-font-style: oblique;" text="chemin_image" />
+      <ImageView fx:id="ImageViewer" fitHeight="141.0" fitWidth="174.0" layoutX="203.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
