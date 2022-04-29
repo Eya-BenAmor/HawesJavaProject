@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="categ" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandoController">
+<AnchorPane id="AnchorPane" fx:id="categ" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandoController">
    <children>
       <Label layoutX="22.0" layoutY="24.0" text="Nom randonnée" textFill="#4ea651">
          <font>
@@ -55,7 +55,7 @@
          </font>
       </Label>
       <TextField fx:id="tfDescription" layoutX="22.0" layoutY="433.0" prefHeight="82.0" prefWidth="128.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="705.0" />
-      <Button layoutX="392.0" layoutY="573.0" mnemonicParsing="false" onAction="#AjouterRandonnee" prefHeight="26.0" prefWidth="87.0" text="Ajouter" textFill="#4ea651">
+      <Button layoutX="392.0" layoutY="617.0" mnemonicParsing="false" onAction="#AjouterRandonnee" prefHeight="26.0" prefWidth="87.0" text="Ajouter" textFill="#4ea651">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -71,12 +71,12 @@
             <TableColumn fx:id="descriptionAff" prefWidth="115.19994962215424" text="Description" />
          </columns>
       </TableView>
-      <Button layoutX="509.0" layoutY="573.0" mnemonicParsing="false" onAction="#ModifierRandonnee" prefHeight="26.0" prefWidth="87.0" text="Modifier" textFill="#4ea651">
+      <Button layoutX="509.0" layoutY="617.0" mnemonicParsing="false" onAction="#ModifierRandonnee" prefHeight="26.0" prefWidth="87.0" text="Modifier" textFill="#4ea651">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="624.0" layoutY="573.0" mnemonicParsing="false" onAction="#SupprimerRandonnee" prefHeight="26.0" prefWidth="87.0" text="Supprimer" textFill="#4ea651">
+      <Button layoutX="624.0" layoutY="617.0" mnemonicParsing="false" onAction="#SupprimerRandonnee" prefHeight="26.0" prefWidth="87.0" text="Supprimer" textFill="#4ea651">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

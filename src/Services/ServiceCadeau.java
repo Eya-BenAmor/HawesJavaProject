@@ -6,8 +6,8 @@ package Services;
  * and open the template in the editor.
  */
 
-import Entites.Cadeau;
-import Entites.Competition;
+import Entities.Cadeau;
+import Entities.Competition;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

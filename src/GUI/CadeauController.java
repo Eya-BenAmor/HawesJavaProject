@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Entites.Cadeau;
+import Entities.Cadeau;
 import Services.ServiceCadeau;
 import utils.MailerService;
 import utils.Navigation;

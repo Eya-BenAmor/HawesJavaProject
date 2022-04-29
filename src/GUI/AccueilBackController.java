@@ -83,15 +83,45 @@ public class AccueilBackController implements Initializable {
 
     @FXML
     private void categback(ActionEvent event) {
+         grid.getChildren().clear();
+         try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("CatInterface.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void platcateg(ActionEvent event) {
+         grid.getChildren().clear();
+         try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("PlatInterface.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
     @FXML
     private void formationback(ActionEvent event) {
+          grid.getChildren().clear();
+         try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("Formation.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -144,6 +174,16 @@ public class AccueilBackController implements Initializable {
 
     @FXML
     private void partiformationback(ActionEvent event) {
+          grid.getChildren().clear();
+         try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("ParticForm.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     }
 

@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Entites.Competition;
+import Entities.Competition;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

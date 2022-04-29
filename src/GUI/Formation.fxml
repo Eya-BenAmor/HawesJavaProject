@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FormationController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="21.0" prefHeight="391.0" prefWidth="609.0">
+         <children>
+            <TextField fx:id="nomf" layoutX="24.0" layoutY="143.0" prefHeight="36.0" prefWidth="160.0" />
+            <TextField fx:id="domaine" layoutX="24.0" layoutY="216.0" prefHeight="36.0" prefWidth="160.0" />
+            <TextField fx:id="duree" layoutX="24.0" layoutY="290.0" prefHeight="36.0" prefWidth="160.0" />
+            <TextField fx:id="nomeq" layoutX="29.0" layoutY="366.0" prefHeight="36.0" prefWidth="151.0" />
+            <Label layoutX="34.0" layoutY="122.0" text="Nom" />
+            <Label layoutX="29.0" layoutY="199.0" text="Domaine" />
+            <Label layoutX="30.0" layoutY="341.0" text="Nom Equipe" />
+            <Label layoutX="31.0" layoutY="273.0" text="Duree" />
+            <TextField fx:id="recherche" layoutX="231.0" onAction="#chercher" prefHeight="36.0" prefWidth="160.0" promptText="Recherche" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="ListF" layoutX="229.0" layoutY="69.0" prefHeight="586.0" prefWidth="662.0">
+         <columns>
+            <TableColumn id="partic" fx:id="nF" prefWidth="161.0" text="Nom " />
+            <TableColumn fx:id="dF" prefWidth="200.0" text="Domaine" />
+            <TableColumn fx:id="dureeF" minWidth="8.0" prefWidth="107.0" text="Duree" />
+            <TableColumn fx:id="nomeqF" prefWidth="189.0" text="Nom Equipe" />
+         </columns>
+      </TableView>
+      <Button fx:id="ajoutF" layoutX="292.0" layoutY="666.0" mnemonicParsing="false" onAction="#inscrire" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Ajouter" />
+      <Button fx:id="modF" layoutX="418.0" layoutY="666.0" mnemonicParsing="false" onAction="#modifier" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Modifier" />
+      <Button fx:id="supF" layoutX="550.0" layoutY="666.0" mnemonicParsing="false" onAction="#supprimer" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Supprimer" />
+      <Button fx:id="stats" layoutX="672.0" layoutY="666.0" mnemonicParsing="false" onAction="#stats" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Statistics" />
+   </children>
+</AnchorPane>

@@ -5,15 +5,16 @@
  */
 package GUI;
 
-import Entites.Cadeau;
-import Entites.Competition;
+import Entities.Cadeau;
+import Entities.Competition;
+import Entities.Formation;
 import Entities.Randonnee;
 import Entities.Reponse;
 import Services.RandonneeService;
 import Services.ReponseService;
 import Services.ServiceCadeau;
 import Services.ServiceCompetition;
-
+import Services.ServiceFormation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -44,6 +45,8 @@ public class AccueilController implements Initializable {
    ServiceCompetition s= new ServiceCompetition();
    private final List<Cadeau> cad = new ArrayList<>();
    ServiceCadeau sc= new ServiceCadeau();
+   private final List<Formation> form = new ArrayList<>();
+   ServiceFormation sF= new ServiceFormation();
     @FXML
     private AnchorPane accueil;
     
@@ -191,6 +194,31 @@ public class AccueilController implements Initializable {
 
     @FXML
     private void formationFront(ActionEvent event) {
+          grid.getChildren().clear();
+        form.addAll(sF.getAllForm());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < form.size(); i++) {
+                FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("FormationFront.fxml"));
+                AnchorPane anchorPane = fxmlloader.load();
+                
+                GUI.FormationFrontController rc = fxmlloader.getController();
+                
+                rc.AfficherFormationFront(form.get(i));
+                
+                if (column == 1 ) {
+                    column = 0;
+                    row++;
+                }
+                
+                grid.add(anchorPane, column++, row);
+                
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML

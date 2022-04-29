@@ -5,8 +5,8 @@
  */
 package GUI;
 
-import Entites.Cadeau;
-import Entites.Competition;
+
+import Entities.Competition;
 import Services.ServiceCadeau;
 import Services.ServiceCompetition;
 import utils.MailerService;

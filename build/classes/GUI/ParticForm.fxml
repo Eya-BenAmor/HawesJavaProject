@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ParticFormController">
+   <children>
+      <TextField fx:id="nomp" layoutX="15.0" layoutY="146.0" prefHeight="40.0" prefWidth="141.0" promptText="nom" />
+      <TextField fx:id="prenompart" layoutX="15.0" layoutY="227.0" prefHeight="40.0" prefWidth="141.0" promptText="prenom" />
+      <TextField fx:id="agepart" layoutX="15.0" layoutY="291.0" prefHeight="40.0" prefWidth="141.0" promptText="age" />
+      <Button fx:id="ajoutP" layoutX="342.0" layoutY="661.0" mnemonicParsing="false" onAction="#ajouter" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Ajouter" />
+      <TextField fx:id="numpart" layoutX="16.0" layoutY="368.0" prefHeight="40.0" prefWidth="141.0" promptText="tele" />
+      <Button fx:id="modP" layoutX="466.0" layoutY="661.0" mnemonicParsing="false" onAction="#modP" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Modifier" />
+      <Button fx:id="supP" layoutX="589.0" layoutY="661.0" mnemonicParsing="false" onAction="#supPartic" onMousePressed="#onsave" prefHeight="25.0" prefWidth="102.0" text="Supprimer" />
+      <TableView fx:id="ListP" layoutX="170.0" layoutY="29.0" prefHeight="619.0" prefWidth="716.0">
+         <columns>
+            <TableColumn id="partic" fx:id="n" prefWidth="172.0" text="Nom" />
+            <TableColumn fx:id="p" minWidth="0.0" prefWidth="285.0" text="Prénom" />
+            <TableColumn fx:id="a" prefWidth="135.0" text="Age" />
+            <TableColumn fx:id="nu" prefWidth="123.0" text="N°" />
+         </columns>
+      </TableView>
+      <Label layoutX="26.0" layoutY="129.0" text="Nom" />
+      <Label layoutX="18.0" layoutY="201.0" text="Prénom" />
+      <Label layoutX="22.0" layoutY="341.0" text="N° Tele" />
+      <Label layoutX="28.0" layoutY="267.0" text="Age" />
+      <Label layoutX="18.0" layoutY="417.0" text="ID formation" />
+      <ComboBox fx:id="idform" layoutX="11.0" layoutY="437.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

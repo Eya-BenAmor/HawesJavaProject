@@ -5,7 +5,8 @@
  */
 package GUI;
 
-import Entites.Cadeau;
+
+import Entities.Cadeau;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
