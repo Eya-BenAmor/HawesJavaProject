@@ -2,6 +2,10 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *//*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package GUI;
 
@@ -22,17 +26,20 @@ import javafx.scene.image.Image;
  */
 public class RepFrontController implements Initializable {
 
-    @FXML
-    private Label nomL;
-    @FXML
-    private Label destinationL;
+     private Reponse rep;
+  
     @FXML
     private TextField tfId;
+  
+
     @FXML
-    private Label nomL1;
+    private Label noml;
     @FXML
-    private Label destinationL1;
-private Reponse rep;
+    private Label descl;
+    @FXML
+    private Label noml1;
+    @FXML
+    private Label descL1;
     /**
      * Initializes the controller class.
      */
@@ -42,8 +49,10 @@ private Reponse rep;
     } 
      public void AfficherRepFront(Reponse r) {
          rep = r;
-        nomL.setText(r.getText());
-        destinationL.setText(r.getNom_rec());
+        noml.setText(r.getNom_rec());
+       descl.setText(r.getText());
+       
+       
        
     }    
     

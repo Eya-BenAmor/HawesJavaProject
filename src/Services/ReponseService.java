@@ -7,6 +7,8 @@ package Services;
  */
 
 
+import Entities.Randonnee;
+import Entities.Reclamation;
 import Entities.Reponse;
 import utils.Datasource;
 
@@ -15,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -30,6 +33,10 @@ public class ReponseService {
     private Statement steR;
     private ResultSet rs;
 
+    private Connection con;
+  
+
+ 
 
     private Connection connection;
     public ReponseService() {
@@ -79,20 +86,22 @@ public class ReponseService {
         }   
          return list;
     }
-      public ObservableList<Reponse> afficherAll(){
-         String req="select * from reponse ";   
-         System.out.println(req);
-            ObservableList <Reponse> list=FXCollections.observableArrayList();
-         try {
-            ste=connection.createStatement();
-            rs=ste.executeQuery(req);
-            while(rs.next()){
-                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation"),rs.getString("nom_rec")));
+    
+     public ObservableList<Reponse> getReponses(){
+   
+String requete="select * from reponse";
+     
+     ObservableList <Reponse> list=FXCollections.observableArrayList();
+        try {
+            ste = connection.createStatement();
+           rs= ste.executeQuery(requete);
+            while (rs.next()) { 
+                list.add(new Reponse(rs.getInt("id"),rs.getString("text"),rs.getInt("id_reclamation"),rs.getString("nom_rec")) );              
             }
         } catch (SQLException ex) {
-             Logger.getLogger(Reponse.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-         return list;
+            Logger.getLogger(ReponseService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
      public void deleteReponse(String id){
         String req = "delete from reponse where id = ?";
@@ -121,5 +130,18 @@ public class ReponseService {
             Logger.getLogger(ReponseService.class.getName()).log(Level.ALL.SEVERE, null, ex);
         }
         
+    }
+   
+    public void deleteReclamation(String id){
+        String req = "delete from reclamation where id = ?";
+        try {
+            pst=connection.prepareStatement(req);
+            pst.setString(1, id);
+            
+            pst.executeUpdate();
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

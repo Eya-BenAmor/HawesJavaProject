@@ -16,6 +16,21 @@ import javafx.scene.image.ImageView;
 public class Reclamation {
        private int id;
        private String nom;
+         private  String description;
+    private Date date_reclamation;
+    private String image;
+    private int id_client;
+    private ImageView img;
+
+       private String client;
+
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
+    }
 
     public String getNom() {
         return nom;
@@ -55,6 +70,25 @@ public class Reclamation {
         this.id_client = id_client;
     }
 
+    public Reclamation(String nom, String description, Date date_reclamation, String image, String client) {
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.client = client;
+    }
+
+    public Reclamation(int id, String nom, String description, Date date_reclamation, String image, String client) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.date_reclamation = date_reclamation;
+        this.image = image;
+        this.client = client;
+    }
+
+  
+
     public Reclamation(int id, String nom, String description, Date date_reclamation, String image, int id_client, ImageView img) {
         this.id = id;
         this.nom = nom;
@@ -68,12 +102,7 @@ public class Reclamation {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    private  String description;
-    private Date date_reclamation;
-    private String image;
-    private int id_client;
-    private ImageView img;
-
+  
     public ImageView getImg() {
         return img;
     }

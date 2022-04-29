@@ -37,10 +37,10 @@ public class ReclamationService {
         
         connection=Datasource.getInstance().getConnection();
     }
-    public ObservableList <Reclamation> readAll(int id_client){
+    public ObservableList <Reclamation> readAll(String client){
         
         Reclamation rec=null;
-            String req="select* from reclamation where id_client = "+id_client+"";    
+            String req="select* from reclamation where client = "+client+"";    
             
             ObservableList <Reclamation> list=FXCollections.observableArrayList();
             
@@ -48,7 +48,7 @@ public class ReclamationService {
             ste=connection.createStatement();
             rs=ste.executeQuery(req);
             while(rs.next()){
-                rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
+                rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getString("client") );
                               
                 File file = new File(rec.getImage());
                 Image image = new Image(file.toURI().toString());
@@ -67,7 +67,7 @@ public class ReclamationService {
             return list;
     }
     public void ajouterReclamation(Reclamation r){
-        String req="insert into reclamation (nom,description,image,date_reclamation,id_client) values (?,?,?,?,?)";
+        String req="insert into reclamation (nom,description,image,date_reclamation,client) values (?,?,?,?,?)";
         try {
             pst=connection.prepareStatement(req);
             java.sql.Date sqlDate=new java.sql.Date(r.getDate_reclamation().getTime());
@@ -75,7 +75,7 @@ public class ReclamationService {
             pst.setString(2, r.getDescription());
             pst.setString(3,r.getImage());
             pst.setDate(4,sqlDate);
-            pst.setInt(5,r.getId_client());
+            pst.setString(5,r.getClient());
           
             pst.executeUpdate();
             
@@ -84,24 +84,7 @@ public class ReclamationService {
         }
         
     }
-    public void modifierReclamation(Reclamation r){
-        String req="update reclamation set nom = ? ,description = ? , image = ? , date_reclamation = ? where id = ?";
-        try {
-            pst=connection.prepareStatement(req);
-            java.sql.Date sqlDate=new java.sql.Date(r.getDate_reclamation().getTime());
-              pst.setString(1, r.getNom());
-            pst.setString(2, r.getDescription());
-            pst.setString(3,r.getImage());
-            pst.setDate(4,sqlDate);;
-            pst.setInt(5,r.getId());
-          
-            pst.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ReclamationService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+  
     public void deleteReclamation(String id){
         String req = "delete from reclamation where id = ?";
         try {
@@ -123,7 +106,7 @@ public class ReclamationService {
             rs=ste.executeQuery(req);
             while(rs.next()){
                 
-                 rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getInt("id_client") );
+                 rec = new Reclamation(rs.getInt("id"),rs.getString("nom"),rs.getString("description"), rs.getDate("date_reclamation"), rs.getString("image"),rs.getString("client") );
                               
                 File file = new File(rec.getImage());
                 Image image = new Image(file.toURI().toString());

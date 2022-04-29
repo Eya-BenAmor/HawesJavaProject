@@ -8,6 +8,7 @@ package GUI;
 
 import Entities.Reclamation;
 import Entities.Reponse;
+import static GUI.LoginController.connectedUser;
 import Services.ReclamationService;
 import Services.ReponseService;
 import java.io.File;
@@ -20,12 +21,16 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -38,6 +43,7 @@ import javafx.scene.input.MouseEvent;
 
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import utils.MailerService;
 
 /**
  * FXML Controller class
@@ -57,7 +63,7 @@ public class ReponseController implements Initializable {
     @FXML
     private TableColumn<Reclamation, ImageView> col_image;
     @FXML
-    private TableColumn<Reclamation, Integer> col_clientId;
+    private TableColumn<Reclamation, String> col_clientId;
     @FXML
     private TextArea ta_reponse;
     @FXML
@@ -70,8 +76,8 @@ public class ReponseController implements Initializable {
     private TableColumn<Reponse, Integer> Col_id_Rec;
     @FXML
     private TableColumn<Reponse, String> col_text;
-    @FXML
-    private Button btn_ReponseModifier;
+ 
+ 
     @FXML
     private Label erreur;
     @FXML
@@ -82,6 +88,20 @@ public class ReponseController implements Initializable {
     private TextField tf_nomrec;
     @FXML
     private TableColumn<Reponse,String> col_nom_rec;
+    @FXML
+    private TextField recherche;
+    @FXML
+    private Button but_delete;
+
+
+    @FXML
+    private TextField tf_id;
+    @FXML
+    private Button btn_ReponseModifier;
+    @FXML
+    private TextField clientmail;
+    @FXML
+    private Button mailbutton;
 
     /**
      * Initializes the controller class.
@@ -91,6 +111,7 @@ public class ReponseController implements Initializable {
         showReclamation();
     }   
     ReponseService rs =new ReponseService();
+     ReponseService recs =new ReponseService();
 
     public void showReclamation(){
         ObservableList<Reclamation> list = new ReclamationService().readAllForAdmin();//we statically set the client id to just show his reclamations
@@ -99,7 +120,7 @@ public class ReponseController implements Initializable {
         col_desc.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("description"));
         col_date.setCellValueFactory(new PropertyValueFactory<Reclamation, Date>("date_reclamation"));
         col_image.setCellValueFactory(new PropertyValueFactory<Reclamation, ImageView>("img"));
-        col_clientId.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id_client"));
+        col_clientId.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("client"));
       
         tv_reclamation.setItems(list);
     }
@@ -110,7 +131,7 @@ public class ReponseController implements Initializable {
         
         tf_idReclamation.setText(Integer.toString(rec.getId()));
           tf_nomrec.setText(rec.getNom());
-        
+          tf_id.setText(Integer.toString(rec.getId()));
         
         showRepo(rec.getId());
 
@@ -136,6 +157,7 @@ public class ReponseController implements Initializable {
                     } 
         rs.addReponse(r);
           showRepo(rec.getId());
+
           new Alert(Alert.AlertType.INFORMATION, "Réponse ajouté").show();
 
         ta_reponse.setText("");
@@ -201,10 +223,79 @@ public class ReponseController implements Initializable {
         showRepo(rec.getId());
     }
 
+
+
+    @FXML
+    private void deleteReclamation(MouseEvent event) {
+           rs.deleteReclamation(tf_id.getText());
+         new Alert(Alert.AlertType.INFORMATION, "Réclamation supprimé").show();
+        showReclamations();
+             
+        
+            
+              TrayNotification tray = new TrayNotification();
+        tray.setTitle("Suppression");
+        tray.setMessage(" Reclamation supprimé avec succès");
+        tray.setNotificationType(NotificationType.WARNING);
+        tray.showAndWait();
+    }
+
+ private final ObservableList<Reclamation> list = FXCollections.observableArrayList();
+  public void showReclamations() {
+        list.clear();
+        ObservableList<Reclamation> lista = new ReclamationService().readAll(connectedUser.getNom());// statically set the client id to just show his reclamations
+        list.setAll(lista);
+        col_id.setCellValueFactory(new PropertyValueFactory<Reclamation, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("nom"));
+        col_desc.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("description"));
+        col_date.setCellValueFactory(new PropertyValueFactory<Reclamation, Date>("date_reclamation"));
+        col_image.setCellValueFactory(new PropertyValueFactory<Reclamation, ImageView>("img"));
+        tv_reclamation.setItems(list);
+        RechercheAV();
+    }
   
+   public void RechercheAV(){
+                // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Reclamation> filteredData = new FilteredList<>(list, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(tmp -> {
+				// If filter text is empty, display all reclamations.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare  with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (tmp.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches description.
+				} else if (String.valueOf(tmp.getId()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tv_reclamation.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tv_reclamation.setItems(sortedData);
+    }    
 
-   
-
+    @FXML
+    private void mail(ActionEvent event) {
+                
+            MailerService m=new MailerService();
+    m.replyMail(clientmail.getText(), "User", "Reclamation traitée", "Bonjour ! votre réclamation a été traitéé");
+    }
     
   
 
