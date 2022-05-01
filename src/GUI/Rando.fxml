@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="categ" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandoController">
+<AnchorPane id="AnchorPane" onMouseClicked="#imprimer" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandoController">
    <children>
       <Label layoutX="22.0" layoutY="24.0" text="Nom randonnée" textFill="#4ea651">
          <font>

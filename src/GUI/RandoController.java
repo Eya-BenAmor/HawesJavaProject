@@ -44,7 +44,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.Robot;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.File;
+import javax.imageio.ImageIO;
 import utils.NavigationEntreInterfaces;
 
 /**
@@ -68,7 +75,6 @@ public class RandoController implements Initializable {
     private TextField tfDuree;
     @FXML
     private TextField tfPrix;
-    @FXML
     private AnchorPane categ;
     @FXML
     private TableColumn<?, ?> nomAff;
@@ -274,6 +280,10 @@ Image img = new Image("/logo.png");
             System.out.println("NO DATA EXIST!");
         }
     }
+
+  
+        
+    
     
 
 }
