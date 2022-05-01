@@ -19,7 +19,7 @@ public class ProjetJava extends Application {
     public static Stage LoginStage=null;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("AccueilBack.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
         
         Scene scene = new Scene(root);
        

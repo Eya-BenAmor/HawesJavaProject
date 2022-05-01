@@ -11,12 +11,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReponseController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="1012.0" style="-fx-background-color: #C2F9A7;">
+      <AnchorPane id="AnchorPane" layoutY="14.0" prefHeight="642.0" prefWidth="1012.0" style="-fx-background-color: #C2F9A7;">
          <children>
+            <TextField fx:id="tf_id" layoutX="235.0" layoutY="276.0" />
             <TextField fx:id="tf_nomrec" layoutX="545.0" layoutY="131.0" />
             <TextField fx:id="ta_id" layoutX="209.0" layoutY="458.0" prefHeight="26.0" prefWidth="33.0" />
             <TextField fx:id="tf_idReclamation" layoutX="235.0" layoutY="118.0" />
-            <TableView fx:id="tv_reclamation" layoutX="62.0" layoutY="40.0" onMouseClicked="#tableClicked" prefHeight="206.0" prefWidth="827.0" style="-fx-background-color: #C6C8C5;">
+            <TableView fx:id="tv_reclamation" layoutX="62.0" layoutY="106.0" onMouseClicked="#tableClicked" prefHeight="206.0" prefWidth="827.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="0.0" text="ID" />
                   <TableColumn fx:id="col_date" prefWidth="144.79995727539062" text="Date" />
@@ -26,37 +27,54 @@
                   <TableColumn fx:id="col_nom" prefWidth="135.99993896484375" text="Nom" />
                </columns>
             </TableView>
-            <Label layoutX="506.0" layoutY="264.0" text="Ajouter une réponse : ">
+            <Label layoutX="476.0" layoutY="457.0" text="Ajouter une réponse : ">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btn_ReponseConfirm" layoutX="795.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#addReponse" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #96F26A;" text="Envoyer" textFill="#408c2d">
+            <Button fx:id="btn_ReponseConfirm" layoutX="808.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#addReponse" prefHeight="42.0" prefWidth="107.0" style="-fx-background-color: #96F26A;" text="Envoyer" textFill="#408c2d">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <TextArea fx:id="ta_reponse" layoutX="468.0" layoutY="293.0" prefHeight="146.0" prefWidth="276.0" style="-fx-background-color: #C6C8C5;" />
-            <TableView fx:id="tv_reponse" layoutX="56.0" layoutY="278.0" onMouseClicked="#clicked" prefHeight="226.0" prefWidth="306.0" style="-fx-background-color: #C6C8C5;">
+            <TextArea fx:id="ta_reponse" layoutX="439.0" layoutY="505.0" prefHeight="78.0" prefWidth="322.0" style="-fx-background-color: #C6C8C5;" />
+            <TableView fx:id="tv_reponse" layoutX="30.0" layoutY="349.0" onMouseClicked="#clicked" prefHeight="230.0" prefWidth="405.0" style="-fx-background-color: #C6C8C5;">
                <columns>
                   <TableColumn fx:id="Col_id_Rec" prefWidth="132.79998779296875" text="id_Reclamation" visible="false" />
-                  <TableColumn fx:id="col_text" prefWidth="303.1999931335449" text="Réponses " />
-                  <TableColumn fx:id="col_nom_rec" minWidth="0.0" prefWidth="4.0" text="Nom réclamation" />
+                  <TableColumn fx:id="col_text" prefWidth="263.9999809265137" text="Réponses " />
+                  <TableColumn fx:id="col_nom_rec" minWidth="0.0" prefWidth="142.4000244140625" text="Nom réclamation" />
                </columns>
             </TableView>
-            <Button layoutX="166.0" layoutY="509.0" mnemonicParsing="false" onAction="#btnSupprimer" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #96F26A;" text="Supprimer" textFill="#418a2d">
+            <Button layoutX="183.0" layoutY="587.0" mnemonicParsing="false" onAction="#btnSupprimer" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #96F26A;" text="Supprimer" textFill="#418a2d">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="btn_ReponseModifier" layoutX="166.0" layoutY="566.0" mnemonicParsing="false" onMouseClicked="#modifierReponse" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #96F26A;" text="Modifier" textFill="#408c2d">
+            <Button fx:id="btn_ReponseModifier" layoutX="46.0" layoutY="587.0" mnemonicParsing="false" onMouseClicked="#modifierReponse" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #96F26A;" text="Modifier" textFill="#408c2d">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Label fx:id="erreur" layoutX="418.0" layoutY="457.0" prefHeight="28.0" prefWidth="375.0" textFill="#d71414">
+            <Label fx:id="erreur" layoutX="432.0" layoutY="595.0" prefHeight="28.0" prefWidth="375.0" textFill="#d71414">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <TextField fx:id="recherche" layoutX="401.0" layoutY="33.0" />
+            <Label layoutX="263.0" layoutY="28.0" text="Recherche :" textFill="#36b949">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="but_delete" layoutX="727.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#deleteReclamation" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Delete" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <TextField fx:id="clientmail" layoutX="459.0" layoutY="373.0" prefHeight="35.0" prefWidth="266.0" />
+            <Button fx:id="mailbutton" layoutX="758.0" layoutY="369.0" mnemonicParsing="false" onAction="#mail" prefHeight="43.0" prefWidth="182.0" style="-fx-background-color: #96F26A;" text="envoyer mail" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

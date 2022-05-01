@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -47,12 +48,18 @@ public class AccueilBackController implements Initializable {
      String path = "C:\\Users\\MSI\\Documents\\GitHub\\HawesJavaProject\\music\\music.mp3";
      Media media = new Media(new File(path).toURI().toString());
      MediaPlayer mediaPlayer = new MediaPlayer(media);
+    @FXML
+    private Label adminN;
+    @FXML
+    private Label nom;
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+     //  nom.setText(LoginController.connectedAdmin.getPrenom());
          try {
           FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("StatRando.fxml"));
@@ -126,6 +133,18 @@ public class AccueilBackController implements Initializable {
 
     @FXML
     private void userback(ActionEvent event) {
+                 grid.getChildren().clear();
+
+          try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("UserList.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -242,6 +261,38 @@ public class AccueilBackController implements Initializable {
             Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @FXML
+    private void adminliste(ActionEvent event) {
+                 grid.getChildren().clear();
+
+          try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("AdminList.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void adminadd(ActionEvent event) {
+                 grid.getChildren().clear();
+
+          try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("AddAdmin.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(AccueilBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

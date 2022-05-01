@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="MainAnchor" prefHeight="544.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminListController">
+<AnchorPane id="AnchorPane" fx:id="MainAnchor" prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #C2F9A7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminListController">
    <children>
-      <TableView fx:id="AdminListTable" layoutX="43." layoutY="83.0" prefHeight="423.0" prefWidth="488.0">
+      <TableView fx:id="AdminListTable" layoutX="43.0" layoutY="356.0" prefHeight="423.0" prefWidth="488.0">
          <columns>
             <TableColumn fx:id="AdminLn" prefWidth="75.0" text="Nom" />
             <TableColumn fx:id="AdminFn" prefWidth="81.0" text="Prenom" />
@@ -17,20 +17,19 @@
             <TableColumn fx:id="AdminEmail" prefWidth="223.0" text="Email" />
          </columns>
       </TableView>
-      <Button fx:id="updBtn" layoutX="544.0" layoutY="118.0" mnemonicParsing="false" onAction="#OnUpdate" prefHeight="25.0" prefWidth="95.0" text="Modifier" />
-      <Button fx:id="delBtn" layoutX="544.0" layoutY="152.0" mnemonicParsing="false" onAction="#OnDelete" prefHeight="25.0" prefWidth="95.0" text="Supprimer" />
-      <TextField fx:id="tfAdminLn" layoutX="621.0" layoutY="216.0" prefHeight="25.0" prefWidth="260.0" />
-      <TextField fx:id="tfAdminFn" layoutX="621.0" layoutY="261.0" prefHeight="25.0" prefWidth="260.0" />
-      <TextField fx:id="tfAdminEmail" layoutX="621.0" layoutY="305.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="537.0" layoutY="220.0" prefHeight="17.0" prefWidth="95.0" text="Nom" />
-      <Label layoutX="537.0" layoutY="265.0" prefHeight="17.0" prefWidth="95.0" text="Prenom" />
-      <Label layoutX="537.0" layoutY="310.0" prefHeight="17.0" prefWidth="95.0" text="Email" />
-      <Button fx:id="UPDbtn" layoutX="665.0" layoutY="403.0" mnemonicParsing="false" onAction="#OnUpDate" prefHeight="25.0" prefWidth="173.0" text="Update" />
-      <TextField fx:id="tfAdminCin" layoutX="621.0" layoutY="349.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="537.0" layoutY="354.0" prefHeight="17.0" prefWidth="95.0" text="CIN" />
-      <Button fx:id="addBtn" layoutX="544.0" layoutY="84.0" mnemonicParsing="false" onAction="#OnAdd" prefHeight="25.0" prefWidth="95.0" text="Ajouter" />
-      <TextField fx:id="tfSearch" layoutX="43.0" layoutY="46.0" onInputMethodTextChanged="#OnSearching" onKeyTyped="#Search" prefHeight="25.0" prefWidth="488.0" />
-      <Button layoutX="783.0" layoutY="481.0" mnemonicParsing="false" onAction="#OnHome" prefHeight="25.0" prefWidth="95.0" text="Home" />
+      <Button fx:id="updBtn" layoutX="686.0" layoutY="208.0" mnemonicParsing="false" onAction="#OnUpdate" prefHeight="25.0" prefWidth="95.0" text="Modifier" />
+      <Button fx:id="delBtn" layoutX="686.0" layoutY="242.0" mnemonicParsing="false" onAction="#OnDelete" prefHeight="25.0" prefWidth="95.0" text="Supprimer" />
+      <TextField fx:id="tfAdminLn" layoutX="621.0" layoutY="471.0" prefHeight="25.0" prefWidth="260.0" />
+      <TextField fx:id="tfAdminFn" layoutX="621.0" layoutY="516.0" prefHeight="25.0" prefWidth="260.0" />
+      <TextField fx:id="tfAdminEmail" layoutX="621.0" layoutY="560.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="537.0" layoutY="475.0" prefHeight="17.0" prefWidth="95.0" text="Nom" />
+      <Label layoutX="537.0" layoutY="520.0" prefHeight="17.0" prefWidth="95.0" text="Prenom" />
+      <Label layoutX="537.0" layoutY="565.0" prefHeight="17.0" prefWidth="95.0" text="Email" />
+      <Button fx:id="UPDbtn" layoutX="654.0" layoutY="806.0" mnemonicParsing="false" onAction="#OnUpDate" prefHeight="25.0" prefWidth="173.0" text="Update" />
+      <TextField fx:id="tfAdminCin" layoutX="621.0" layoutY="604.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="537.0" layoutY="609.0" prefHeight="17.0" prefWidth="95.0" text="CIN" />
+      <Button fx:id="addBtn" layoutX="686.0" layoutY="174.0" mnemonicParsing="false" onAction="#OnAdd" prefHeight="25.0" prefWidth="95.0" text="Ajouter" />
+      <TextField fx:id="tfSearch" layoutX="43.0" layoutY="176.0" onInputMethodTextChanged="#OnSearching" onKeyTyped="#Search" prefHeight="25.0" prefWidth="488.0" />
       <Label fx:id="ConnAdmin" layoutX="769.0" layoutY="50.0" prefHeight="17.0" prefWidth="110.0" />
    </children>
 </AnchorPane>

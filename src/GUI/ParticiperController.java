@@ -95,7 +95,7 @@ public class ParticiperController implements Initializable {
      
         parti.setId_randonnee(rando.getId());
         System.out.println(rando.getId());
-        parti.setId_user(4);
+        parti.setId_user(LoginController.connectedUser.getId());
 
        if (((tfAge.getText().isEmpty())) || ((tfTel.getText().isEmpty())) || ((tfClasse.getSelectionModel().isEmpty())) || ((tfMaladie.getSelectionModel().isEmpty())) ) {
 

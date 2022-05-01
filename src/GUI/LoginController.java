@@ -87,21 +87,13 @@ public class LoginController implements Initializable {
         if ((Admin.verifierLogin(tfEmail.getText(), pfPwd.getText()))==true){
             connectedAdmin = Admin.getAdmin(tfEmail.getText());
             System.out.println(connectedAdmin);
-            Parent page1 = FXMLLoader.load(getClass().getResource("BackOffice.fxml"));
-            Scene scene = new Scene(page1, 500, 500);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Home");
-            stage.setScene(scene);
-            stage.show();      
+              NavigationEntreInterfaces nav = new NavigationEntreInterfaces();
+                    nav.navigate(event, "GUI", "/GUI/AccueilBack.fxml");
                
         }else if ((User.verifierLogin(tfEmail.getText(), pfPwd.getText()))==true){
             connectedUser = User.getUser(tfEmail.getText());
-            Parent page1 = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-            Scene scene = new Scene(page1, 900, 544);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Profile");
-            stage.setScene(scene);
-            stage.show();
+            NavigationEntreInterfaces nav = new NavigationEntreInterfaces();
+                    nav.navigate(event, "GUI", "/GUI/Accueil.fxml");
                 
                 }else {
             EmailErr.setText("Veuillez verifier votre adresse email");
@@ -111,28 +103,18 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void create(ActionEvent event) throws IOException {
-           Parent page1 = FXMLLoader.load(getClass().getResource("SingUp.fxml"));
-            Scene scene = new Scene(page1, 900, 544);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("SignUp");
-            stage.setScene(scene);
-            stage.show();
+    private void creerCompte(ActionEvent event) throws IOException {
+         NavigationEntreInterfaces nav = new NavigationEntreInterfaces();
+                    nav.navigate(event, "GUI", "/GUI/SignUp.fxml");
     }
 
     @FXML
     private void OnCreateAccount(TouchEvent event) {
     }
 
-    @FXML
-    private void OnCreateAccount(ActionEvent event) throws IOException {
-        Parent page1 = FXMLLoader.load(getClass().getResource("SingUp.fxml"));
-            Scene scene = new Scene(page1, 900, 544);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("SignUp");
-            stage.setScene(scene);
-            stage.show();
-    }
+   
+
+   
 
   
    

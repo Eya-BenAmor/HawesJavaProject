@@ -24,6 +24,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -52,6 +53,10 @@ public class AccueilController implements Initializable {
     
       public static final String ACCOUNT_SIDD= System.getenv("ACCOUNT_SID");
     public static final String AUTH_TOKENN = System.getenv("AUTH_TOKEN");
+    @FXML
+    private Label connName;
+    @FXML
+    private Label nom;
 
  
     /**
@@ -61,7 +66,7 @@ public class AccueilController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
           // TODO
           
-        
+       // nom.setText(LoginController.connectedUser.getPrenom());
           
           
           
@@ -165,7 +170,7 @@ public class AccueilController implements Initializable {
     @FXML
     private void reclamationFront(ActionEvent event) {
          grid.getChildren().clear();
-        rep.addAll(repservice.afficherAll());
+        rep.addAll(repservice.getReponses());
         int column = 0;
         int row = 1;
         try {
@@ -221,15 +226,6 @@ public class AccueilController implements Initializable {
         }
     }
 
-    @FXML
-    private void profFront(ActionEvent event) {
-    }
-
-    @FXML
-    private void deconnecter(ActionEvent event)  {
-     
-        
-    }
 
     @FXML
     private void cadeauFront(ActionEvent event) {

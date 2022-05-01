@@ -168,15 +168,7 @@ public class AdminListController implements Initializable {
         AdminListTable.setItems(Admin.searchAdmins(key));
     }
 
-    @FXML
-    private void OnHome(ActionEvent event) throws IOException {
-        Parent page1 = FXMLLoader.load(getClass().getResource("BackOffice.fxml"));
-        Scene scene = new Scene(page1, 900, 544);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("Admins List");
-        stage.setScene(scene);
-        stage.show();
-    }
+  
 
     
 
