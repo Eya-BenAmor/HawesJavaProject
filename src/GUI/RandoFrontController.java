@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import utils.Navigation;
 import utils.NavigationEntreInterfaces;
 
 /**
@@ -88,5 +89,7 @@ public class RandoFrontController implements Initializable {
         NavigationEntreInterfaces nav = new NavigationEntreInterfaces();
                     nav.navigate(event, "GUI", "/GUI/Participer.fxml");
     }
+
+   
     
 }

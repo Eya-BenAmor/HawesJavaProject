@@ -40,6 +40,11 @@ import javafx.scene.input.MouseEvent;
 import org.controlsfx.control.Notifications;
 import javax.sound.sampled.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import utils.Datasource;
 /**
  * FXML Controller class
@@ -89,6 +94,8 @@ public class CadeauController implements Initializable {
     ObservableList<Cadeau> dataList;
     @FXML
     private TextField recherche;
+    @FXML
+    private Button Stat;
     
     /**
      * Initializes the controller class.
@@ -199,6 +206,8 @@ public class CadeauController implements Initializable {
         
        
         serv.addCadeau(f);
+                   showCadeau();
+
         MailerService m=new MailerService();
     m.replyMail("mezen.bayounes@esprit.tn", "User", "ajout de cadeau", "Bonjour !un Cadeau ajoutee");
               Image img=new Image("/gui/img.png");
@@ -250,6 +259,9 @@ public class CadeauController implements Initializable {
 
         System.out.println(parseInt(comboBox.getValue().toString()));
      serv.updateCadeau(f);
+                showCadeau();
+
+
           Image img=new Image("/gui/img.png");
 
  Notifications notificationBuilder= Notifications.create()
@@ -276,6 +288,8 @@ public class CadeauController implements Initializable {
                  ServiceCadeau s= new ServiceCadeau();
 
           s.deleteCadeau(tf_id.getText());
+                     showCadeau();
+
           Image img=new Image("/gui/img.png");
            Notifications notificationBuilder= Notifications.create()
                    
@@ -353,6 +367,28 @@ public class CadeauController implements Initializable {
 
     }
 
+    @FXML
+    private void statcad(ActionEvent event) {
+         try {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("StatCadeau.fxml"));
+        //AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource("Stats.fxml"));
+        /*
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+         */
+        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        Stage stage = new Stage();
+        stage.setTitle("Statistique");
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException e) {
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.log(Level.SEVERE, "Failed to create new Window.", e);
+    }
+    }
+  
+       
     
        
     }

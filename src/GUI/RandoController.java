@@ -45,6 +45,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import java.awt.AWTException;
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.Robot;
@@ -280,6 +281,39 @@ Image img = new Image("/logo.png");
             System.out.println("NO DATA EXIST!");
         }
     }
+
+
+    @FXML
+    private void imprimer(MouseEvent event) {
+    }
+
+    @FXML
+    private void imprim(ActionEvent event) throws AWTException  {
+      try {
+            Robot robot = new Robot();
+            //Dimension de l'écran
+            Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+            //capture d'écran
+            BufferedImage bi = robot.createScreenCapture(new Rectangle(dimension.width, dimension.height));
+            //enregistrer l'image
+            ImageIO.write(bi, "jpg", new File("C:\\Users\\MSI\\Documents\\GitHub\\HawesJavaProject\\screenShot\\screenshot.jpg"));
+            Image img = new Image("/logo.png");
+            Notifications notificationBuilder = Notifications.create()
+                    .title("Notification  ")
+                    .text(" Imprime d'écran est enregistrée avec succés").graphic(new ImageView(img)).hideAfter(Duration.seconds(5))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder.darkStyle();
+            notificationBuilder.show();
+
+            
+        } catch (AWTException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }   
+    }
+
+   
 
   
         

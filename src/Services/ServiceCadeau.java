@@ -36,9 +36,37 @@ public class ServiceCadeau {
     private Statement ste;
     private PreparedStatement pst ;
     private ResultSet rs;
+    
+  
+    
+
 
     public ServiceCadeau() {
         connexion = Datasource.getInstance().getConnection();
+    }
+    
+    
+    
+     public int Stats(String par,String field) {
+   String sql = "select count(*) from Cadeau where "+field+""+ "=" +"'"+par+"'";
+   
+  
+      try {
+            
+    
+           ste = connexion.createStatement();
+           rs= ste.executeQuery(sql);
+
+            int num = 0;
+            while(rs.next()){
+                num = (rs.getInt(1));
+                return num;
+ 
+            }
+        } catch (SQLException ex) {
+            
+        }
+        return 0 ;
     }
     
     

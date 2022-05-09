@@ -40,6 +40,7 @@ import Entities.ParticForm;
 import Services.ServiceFormation;
 import Services.ServiceParticForm;
 import utils.Datasource;
+import utils.MailerService;
 import utils.Navigation;
 
 /**
@@ -249,6 +250,7 @@ public class ParticFormController implements Initializable {
 
         serv.ajouterPartic(parti);
         showP();
+
 
     }
 

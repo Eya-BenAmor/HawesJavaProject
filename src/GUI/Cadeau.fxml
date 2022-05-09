@@ -88,6 +88,11 @@
             </Label>
             <TextField fx:id="text_Description_Cadeau" layoutX="14.0" layoutY="183.0" prefHeight="26.0" prefWidth="166.0" />
             <ComboBox fx:id="comboBox" layoutX="17.0" layoutY="260.0" prefWidth="150.0" />
+            <Button fx:id="Stat" layoutX="42.0" layoutY="621.0" mnemonicParsing="false" onAction="#statcad" onMouseClicked="#deleteCadeau" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #96F26A;" text="Stats" textFill="#408c2d">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

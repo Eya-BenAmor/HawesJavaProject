@@ -10,6 +10,7 @@ import Entities.Competition;
 import Entities.Formation;
 import Entities.Randonnee;
 import Entities.Reponse;
+import static GUI.LoginController.dashBStage;
 import Services.RandonneeService;
 import Services.ReponseService;
 import Services.ServiceCadeau;
@@ -20,13 +21,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import utils.Navigation;
 
 
 /**
@@ -255,6 +263,36 @@ public class AccueilController implements Initializable {
             ex.printStackTrace();
         }
         
+    }
+
+    @FXML
+    private void chat(ActionEvent event) throws IOException {
+           grid.getChildren().clear();
+             try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("ClientChat.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void reclam(ActionEvent event) throws IOException {
+          grid.getChildren().clear();
+             try {
+          FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("Reclamation.fxml"));
+       
+            AnchorPane anchorPane = fxmlloader.load();
+              grid.add(anchorPane, 1, 1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     

@@ -48,7 +48,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import net.glxn.qrgen.QRCode;
+//import net.glxn.qrgen.QRCode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -139,7 +139,7 @@ public class ReclamationController implements Initializable {
 
         System.out.println(dp_date.getValue().getYear());
         Date d = java.sql.Date.valueOf(dp_date.getValue());
-        Reclamation r = new Reclamation(ta_nom.getText(),ta_desc.getText(), d, tf_image.getText(), connectedUser.getNom());// i set the client statically, it has to be changed later in the integration 
+        Reclamation r = new Reclamation(ta_nom.getText(),ta_desc.getText(), d, tf_image.getText(), LoginController.connectedUser.getId());// i set the client statically, it has to be changed later in the integration 
         
        
           Date dateo = Date.valueOf(dp_date.getValue());
@@ -198,10 +198,10 @@ public class ReclamationController implements Initializable {
  public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
     private void QRcode(Reclamation r) throws FileNotFoundException, IOException {
         String contenue = "Description : " + r.getDescription()+ "\n"+"Nom : " + r.getNom()+ "\n"+ "Date: " + r.getDate_reclamation().toString(); 
-        ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
+      //  ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
         File f = new File(projectPath + "\\src\\qr\\" + r.getNom().toString()+ ".jpg");
         FileOutputStream fos = new FileOutputStream(f); //creation du fichier de sortie
-        fos.write(out.toByteArray()); //ecrire le fichier du sortie converter
+      //  fos.write(out.toByteArray()); //ecrire le fichier du sortie converter
         fos.flush(); // creation final
 
     }
