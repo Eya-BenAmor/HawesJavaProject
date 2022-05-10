@@ -119,14 +119,14 @@ public class AddAdminController implements Initializable {
         a.setConfirm_mdp(pfAdminCPwd.getText());
         Admin.ajouter(a);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminList.fxml"));
+          /*  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminList.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(new Scene(root1));
                 dashBStage = stage;
                 stage.show();
-               
+               */
     }
     }
 }

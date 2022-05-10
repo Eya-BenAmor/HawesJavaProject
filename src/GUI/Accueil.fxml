@@ -21,33 +21,23 @@
             <AnchorPane layoutX="37.0" layoutY="-4.0" prefHeight="400.0" prefWidth="1000.0" style="-fx-background-color: #b5d7c4; -fx-background-radius: 180;">
                <children>
                   <AnchorPane layoutX="204.0" layoutY="136.0" prefHeight="27.0" prefWidth="907.0" style="-fx-background-color: #4ea651;" />
-                  <Label fx:id="connName" layoutX="559.0" layoutY="100.0" prefHeight="18.0" prefWidth="60.0" text="Bienvenue" />
+                  <Label fx:id="connName" layoutX="537.0" layoutY="100.0" prefHeight="18.0" prefWidth="89.0" text="Bienvenue" />
                   <Label fx:id="nom" layoutX="621.0" layoutY="99.0" prefHeight="18.0" prefWidth="126.0" />
                </children>
             </AnchorPane>
             <Pane layoutX="-14.0" layoutY="-11.0" prefHeight="935.0" prefWidth="260.0" style="-fx-background-color: white; -fx-background-image: green;">
                <children>
-                  <Button layoutX="14.0" layoutY="257.0" mnemonicParsing="false" onAction="#competitionFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Compétitions" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="330.0" mnemonicParsing="false" onAction="#competitionFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Compétitions" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="416.0" mnemonicParsing="false" onAction="#categorieFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Catégories" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="499.0" mnemonicParsing="false" onAction="#reclamationFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Réponses" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="502.0" mnemonicParsing="false" onAction="#platFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Plats" textFill="#4ea651">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="14.0" layoutY="583.0" mnemonicParsing="false" onAction="#reclamationFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Réponses" textFill="#4ea651">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="14.0" layoutY="658.0" mnemonicParsing="false" onAction="#formationFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Formations" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="574.0" mnemonicParsing="false" onAction="#formationFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Formations" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -69,12 +59,12 @@
                         <Image url="@copyright.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="14.0" layoutY="173.0" mnemonicParsing="false" onAction="#randonneeFront" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Randonnées" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="246.0" mnemonicParsing="false" onAction="#randonneeFront" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Randonnées" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="339.0" mnemonicParsing="false" onAction="#cadeauFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Cadeaux" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="412.0" mnemonicParsing="false" onAction="#cadeauFront" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Cadeaux" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -84,16 +74,26 @@
                         <Image url="@logo.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="13.0" layoutY="739.0" mnemonicParsing="false" onAction="#chat" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Chat" textFill="#4ea651">
+                  <Button layoutX="13.0" layoutY="655.0" mnemonicParsing="false" onAction="#chat" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Chat" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="814.0" mnemonicParsing="false" onAction="#reclam" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Réclamations" textFill="#4ea651">
+                  <Button layoutX="14.0" layoutY="730.0" mnemonicParsing="false" onAction="#reclam" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Réclamations" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="63.0" fitWidth="74.0" layoutX="59.0" layoutY="804.0" onMouseClicked="#play" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@play.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="54.0" layoutX="144.0" layoutY="814.0" onMouseClicked="#stop" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pause.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <AnchorPane fx:id="accueil" layoutX="246.0" layoutY="157.0" prefHeight="400.0" prefWidth="600.0">

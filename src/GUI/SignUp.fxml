@@ -18,7 +18,7 @@
       <Label layoutX="319.0" layoutY="369.0" prefHeight="17.0" prefWidth="149.0" text="Email" />
       <Label layoutX="319.0" layoutY="411.0" prefHeight="17.0" prefWidth="149.0" text="Mot de Passe" />
       <Label layoutX="319.0" layoutY="453.0" prefHeight="17.0" prefWidth="149.0" text="Confirmer Mot de Passe" />
-      <Button layoutX="437.0" layoutY="566.0" mnemonicParsing="false" onAction="#OnSignUp" prefHeight="25.0" prefWidth="173.0" text="Sign Up" />
+      <Button layoutX="437.0" layoutY="566.0" mnemonicParsing="false" onAction="#up" prefHeight="25.0" prefWidth="173.0" text="Sign Up" />
       <Label fx:id="nameErr" layoutX="467.0" layoutY="303.0" prefHeight="17.0" prefWidth="260.0" textFill="RED" />
       <Label fx:id="fnErr" layoutX="466.0" layoutY="348.0" prefHeight="17.0" prefWidth="260.0" textFill="RED" />
       <Label fx:id="emailErr" layoutX="468.0" layoutY="389.0" prefHeight="17.0" prefWidth="260.0" textFill="RED" />

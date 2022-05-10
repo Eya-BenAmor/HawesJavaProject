@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.stage.Stage?>
+
+<Stage fx:id="stage" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ServeurController">
+    <scene>
+        <Scene>
+            <AnchorPane fx:id="stage" prefHeight="610.0" prefWidth="769.0" />
+        </Scene>
+    </scene>
+</Stage>

@@ -38,27 +38,27 @@
             </AnchorPane>
             <Pane layoutX="23.0" layoutY="-11.0" prefHeight="938.0" prefWidth="281.0" style="-fx-background-color: white; -fx-background-image: green;">
                <children>
-                  <Button layoutX="22.0" layoutY="220.0" mnemonicParsing="false" onAction="#competionback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion compétitions" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="194.0" mnemonicParsing="false" onAction="#competionback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion compétitions" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="339.0" mnemonicParsing="false" onAction="#categback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion catégories" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="313.0" mnemonicParsing="false" onAction="#categback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion catégories" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="398.0" mnemonicParsing="false" onAction="#platcateg" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion plats" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="372.0" mnemonicParsing="false" onAction="#platcateg" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion plats" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="459.0" mnemonicParsing="false" onAction="#reclamationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion réponses" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="433.0" mnemonicParsing="false" onAction="#reclamationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion réponses" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="520.0" mnemonicParsing="false" onAction="#formationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion formations" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="494.0" mnemonicParsing="false" onAction="#formationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion formations" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -80,32 +80,32 @@
                         <Image url="@copyright.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="22.0" layoutY="642.0" mnemonicParsing="false" onAction="#userback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Liste des users" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="616.0" mnemonicParsing="false" onAction="#userback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Liste des users" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="24.0" layoutY="99.0" mnemonicParsing="false" onAction="#randonneeback" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Gestion randonnées" textFill="#4ea651">
+                  <Button layoutX="24.0" layoutY="73.0" mnemonicParsing="false" onAction="#randonneeback" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Gestion randonnées" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="827.0" mnemonicParsing="false" onAction="#stat" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Statistiques" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="801.0" mnemonicParsing="false" onAction="#stat" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Statistiques" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="280.0" mnemonicParsing="false" onAction="#cadeauback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion cadeaux" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="254.0" mnemonicParsing="false" onAction="#cadeauback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Gestion cadeaux" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="24.0" layoutY="160.0" mnemonicParsing="false" onAction="#partiback" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Gestion participants" textFill="#4ea651">
+                  <Button layoutX="24.0" layoutY="134.0" mnemonicParsing="false" onAction="#partiback" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Gestion participants" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="581.0" mnemonicParsing="false" onAction="#partiformationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Participant-formation" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="555.0" mnemonicParsing="false" onAction="#partiformationback" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Participant-formation" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -120,12 +120,17 @@
                         <Image url="@play.jpg" />
                      </image>
                   </ImageView>
-                  <Button layoutX="24.0" layoutY="703.0" mnemonicParsing="false" onAction="#adminliste" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Liste des admins" textFill="#4ea651">
+                  <Button layoutX="24.0" layoutY="677.0" mnemonicParsing="false" onAction="#adminliste" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Liste des admins" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="22.0" layoutY="765.0" mnemonicParsing="false" onAction="#adminadd" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Ajouter admin" textFill="#4ea651">
+                  <Button layoutX="22.0" layoutY="739.0" mnemonicParsing="false" onAction="#adminadd" prefHeight="50.0" prefWidth="230.0" style="-fx-background-radius: 180; -fx-font-style: oblique;" text="Ajouter admin" textFill="#4ea651">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="22.0" layoutY="862.0" mnemonicParsing="false" onAction="#chat" prefHeight="50.0" prefWidth="230.0" style="-fx-font-style: oblique; -fx-background-radius: 180;" text="Chat" textFill="#4ea651">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

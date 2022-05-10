@@ -37,7 +37,7 @@
       <Button layoutX="48.0" layoutY="501.0" mnemonicParsing="false" onAction="#ajouterplatt" text="ajouter" />
       <TextField fx:id="recherche" layoutX="404.0" layoutY="628.0" />
       <Label layoutX="292.0" layoutY="633.0" text="recherche:" />
-      <Button fx:id="bnt_imprimer" layoutX="710.0" layoutY="413.0" mnemonicParsing="false" onAction="#imprimer" text="imprimer" />
-      <Button fx:id="actualiserb" layoutX="878.0" layoutY="413.0" mnemonicParsing="false" onAction="#actualiser" text="actualiser" />
+      <Button fx:id="bnt_imprimer" layoutX="710.0" layoutY="501.0" mnemonicParsing="false" onAction="#imprimer" text="pdf" />
+      <Button fx:id="actualiserb" layoutX="872.0" layoutY="501.0" mnemonicParsing="false" onAction="#actualiser" text="actualiser" />
    </children>
 </AnchorPane>

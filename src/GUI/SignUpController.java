@@ -20,6 +20,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import utils.Email;
+import utils.MailerService;
+import utils.NavigationEntreInterfaces;
 
 /**
  * FXML Controller class
@@ -61,9 +63,11 @@ public class SignUpController implements Initializable {
         // TODO
     }    
 
+   
+
     @FXML
-    private void OnSignUp(ActionEvent event) throws SQLException, IOException, Exception {
-        UserService USER=new UserService();
+    private void up(ActionEvent event) throws SQLException, Exception {
+      UserService USER=new UserService();
         User U=new User();
         String userE = tfUserEmail.getText();
         Email email =  new Email();
@@ -105,10 +109,11 @@ public class SignUpController implements Initializable {
             U.setPrenom(tfUserFn.getText());
             U.setConfirmMdp(pfUserCPwd.getText());
             USER.ajouter(U);
-            Email.sendEmail(userE, "HAWES", "Merci pour votre inscription."
-                    + "On vous souhaite une bonne randonnée.");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserList.fxml"));
-            fxml=loader.load(); 
+             MailerService m=new MailerService();
+    m.replyMail(userE, "HAWES", "Merci pour votre inscription","On vous souhaite une bonne randonnée");
+         
+           NavigationEntreInterfaces nav = new NavigationEntreInterfaces();
+                    nav.navigate(event, "ProjetJava", "/GUI/Login.fxml");
             }
     }
     
