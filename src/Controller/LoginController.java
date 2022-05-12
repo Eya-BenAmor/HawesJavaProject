@@ -84,10 +84,10 @@ public class LoginController implements Initializable {
         UserService User = new UserService();
         if ((Admin.verifierLogin(tfEmail.getText(), pfPwd.getText()))==true){
             connectedAdmin = Admin.getAdmin(tfEmail.getText());
-            Parent page1 = FXMLLoader.load(getClass().getResource("AdminList.fxml"));
+            Parent page1 = FXMLLoader.load(getClass().getResource("BackOffice.fxml"));
             Scene scene = new Scene(page1, 500, 500);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("List");
+            stage.setTitle("Home");
             stage.setScene(scene);
             stage.show();      
                

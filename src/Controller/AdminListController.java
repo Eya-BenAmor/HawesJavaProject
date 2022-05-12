@@ -87,6 +87,8 @@ public class AdminListController implements Initializable {
     private TextField tfSearch;
     @FXML
     private Button searchBtn;
+    @FXML
+    private Label ConnAdmin;
 
     public void initColumns() {
         
@@ -104,6 +106,8 @@ public class AdminListController implements Initializable {
         initColumns();
         AdminService Admin = new AdminService();
         AdminListTable.setItems(Admin.getAllAdmins());
+        ConnAdmin.setText(LoginController.connectedAdmin.getPrenom());
+
     }    
 
     @FXML

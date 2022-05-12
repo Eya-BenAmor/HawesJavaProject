@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -27,13 +28,15 @@ public class BackOfficeController implements Initializable {
 
     @FXML
     private Label adminN;
+    @FXML
+    private AnchorPane MainAnchor;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        adminN.setText(LoginController.connectedAdmin.getPrenom());
+        //adminN.setText(LoginController.connectedAdmin.getPrenom());
     }    
 
     @FXML

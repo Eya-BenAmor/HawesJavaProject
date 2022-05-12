@@ -26,6 +26,10 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import utils.Datasource;
 /**
  * FXML Controller class
  *
@@ -57,6 +61,8 @@ public class UserListController implements Initializable {
     private Button delBtn;
     @FXML
     private Button pdfBtn;
+    Connection cnx= Datasource.getInstance().getConnection();
+
 
     public void initColumns() {
         
@@ -118,14 +124,19 @@ public class UserListController implements Initializable {
     }
 
     @FXML
-    private void OnPdf(ActionEvent event) {
-        String file_name =  "C:\\Users\\Default\\Downloads\\AdminList.pdf";
+    private void OnPdf(ActionEvent event) throws SQLException {
         Document document = new Document();
-      try
-      {
-         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file_name));
+        UserService USER = new UserService();
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        String query="selct * from user";
+        ps=cnx.prepareStatement(query);
+        rs=ps.executeQuery();
+        
+        try{
+         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Users List"));
          document.open();
-         document.add(new Paragraph("A Hello World PDF document."));
+         document.add(new Paragraph(rs.getString("nom")+""+rs.getString("nom")));
          document.close();
          writer.close();
       } catch (DocumentException e)

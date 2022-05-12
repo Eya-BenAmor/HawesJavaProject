@@ -138,7 +138,7 @@ public class UserService {
     public User getUser(String email) throws SQLException{
     User u=new User();
     
-    String req="SELECT * FROM `utilisateur` WHERE email=? ;";
+    String req="SELECT * FROM `user` WHERE email=? ;";
            
             PreparedStatement pst =cnx.prepareStatement(req);
             pst.setString(1,email);

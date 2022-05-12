@@ -18,8 +18,8 @@ public class Email {
     	
 	public static void sendEmail(String address, String subject, String message) throws Exception{
                         
-            String from="yahya.bensalah20@gmail.com";
-            String pass="20415519yahya";
+            String from="email @";
+            String pass="pwd";
             String[] to = {address};
             String host="smtp.gmail.com";
             
